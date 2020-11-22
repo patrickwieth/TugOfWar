@@ -158,7 +158,7 @@ namespace OpenRA.Mods.CA.Traits
 					fireDelay = Util.ApplyPercentageModifiers(weapon.ReloadDelay, modifiers);
 					burst = weapon.Burst;
 
-					fireDelay *= summedCost / 1000;
+					fireDelay *= summedCost / 500;
 					//Game.Debug(String.Join("; ", fireDelay ));
 
 					if (weapon.AfterFireSound != null && weapon.AfterFireSound.Any())

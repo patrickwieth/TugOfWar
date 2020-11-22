@@ -1474,10 +1474,15 @@ WEAP.auto:
 		LoadingCondition: notmobile
 	PeriodicCargoProduction:
 		Weapon: ProducePassengers
-		InitialDelay: 100
+		InitialDelay: 0
 	ProductionCA:
 		Produces: Vehicle
 		PauseOnCondition: forceshield || invulnerability || being-warped
+	ReloadDelayMultiplier:
+		Modifier: 50
+		RequiresCondition: TeamBalance
+	ExternalCondition@TeamBalance:
+		Condition: TeamBalance
 	GrantExternalConditionToProduced:
 		Condition: autoproduced
 	ProvidesPrerequisite@weap.tow:

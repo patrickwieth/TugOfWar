@@ -14,6 +14,29 @@ WorldLoadedToW = function()
 	mp11 = Player.GetPlayer("Multi11")
 
 	players = { mp0, mp1, mp2, mp3, mp4, mp5, mp6, mp7, mp8, mp9, mp10, mp11 }
+
+	teamA = {}
+	teamB = {}
+
+	for i,player in next,players do
+		Media.DisplayMessage(tostring(player))
+		if player.IsAlliedWith(mp0) then
+			teamA[#teamA+1] = player
+		else
+			teamB[#teamB+1] = player
+		end
+	end
+
+	teamApower = 1
+	teamBpower = 1
+	if (#teamA > #teamB) then
+		teamBpower = #teamA / #teamB
+	elseif (#teamA < #teamB) then
+		teamApower = #teamB / #teamA
+	end
+	Media.DisplayMessage("Team A has " .. tostring(#teamA) .. " members and Team B has " .. tostring(#teamB) .. " members.")
+	Media.DisplayMessage("TeamApower: " .. tostring(teamApower) .. " TeamBpower: " .. tostring(teamBpower))
+
 end
 
 autoproduced = {}
@@ -58,16 +81,6 @@ TickTugOfWar = function()
     return
   end
 
-
-	Media.DisplayMessage(tostring(mp0))
-	Media.DisplayMessage(tostring(mp1))
-	if(mp0.IsBot) then
-		Media.DisplayMessage("mp0 is bot")
-	end
-	if(mp1.IsBot) then
-		Media.DisplayMessage("mp1 is bot")
-	end
-
 	--Media.DisplayMessage(tostring(DateTime.GameTime))
 
 	if DateTime.GameTime % 500 == 0
@@ -76,7 +89,6 @@ TickTugOfWar = function()
 		TransferUnitGroups()
 		AttackMoveUnits()
 	end
-
 end
 
 
@@ -116,14 +128,11 @@ AttackMoveUnits = function()
 		AttackMoveUnitsFromTable(teamAunits[7], warpointb2.Location)
 
 	else
-		Media.DisplayMessage("short move")
 		AttackMoveUnitsFromTable(teamAunits[5], warpointa1.Location)
 		AttackMoveUnitsFromTable(teamAunits[6], warpoint0.Location)
 		AttackMoveUnitsFromTable(teamAunits[7], warpointb1.Location)
 	end
-
 end
-
 
 TransferUnitGroups = function()
 	-- team A units first go into higher lists
@@ -148,13 +157,10 @@ TransferUnitGroups = function()
 	teamBunits[2] = teamBunits[1]
 	teamBunits[1] = {}
 
-	Media.DisplayMessage("length of 7 team A before split " .. tostring( #teamAunits[7] ))
-	Media.DisplayMessage("length of 7 team B before split " .. tostring( #teamBunits[7] ))
 	-- sort units into specific arrays
 
 	--for i, unit in pairs(autoproduced) do
 	for i=1,#autoproduced do
-
 
 		--Media.DisplayMessage("sorting unit #" .. tostring( i ))
 		-- split new units up depending on team
@@ -173,20 +179,21 @@ TransferUnitGroups = function()
 
 	end
 	autoproduced = {}
-
 end
 
 
 Trigger.OnAnyProduction(
   function(producer, produced, productionType)
-
     if producer.Type == 'weap.auto'
     then
-			--Media.DisplayMessage("insert at # " .. #autoproduced+1 .. "autoproduced length " .. tostring( #autoproduced ))
+			if producer.Owner.IsAlliedWith(mp0) and teamApower > 1 then
+				Media.DisplayMessage(" in yes")
+				producer.GrantCondition("TeamBalance")
+			elseif not producer.Owner.IsAlliedWith(mp0) and teamBpower > 1 then
+				producer.GrantCondition("TeamBalance")
+			end
 
-      --table.insert(autoproduced, produced)
 			autoproduced[#autoproduced+1] = produced
-
     end
 	end
 )
