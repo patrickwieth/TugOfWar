@@ -1,0 +1,339 @@
+^chassis_prototype:
+	RejectsOrders:
+		RequiresCondition: autoproduced
+	ExternalCondition@autoproduced:
+		Condition: autoproduced
+
+chassis.armored_fighting_vehicle:
+	Inherits: ^Tank
+	Inherits@turrets: ^light_turrets
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BERSERK: ^Berserk
+	Inherits: ^chassis_prototype
+	Buildable:
+		Queue: Chassis
+		BuildPaletteOrder: 0
+		Prerequisites: weap.tow
+		Description: Adaptable infantry transport.\n  Can attack Aircraft.\n  Strong vs Light Armor, Aircraft\n  Weak vs Infantry, Tanks\n  Special Ability: Transform
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Light Armored Fighting Vehicle
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 113
+		PauseOnCondition: notmobile || being-captured || empdisable || being-warped || driver-dead
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+		RequiresCondition: !spyturr
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+		RequiresCondition: !spyturr
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped
+		RequiresCondition: !spyturr
+	WithMuzzleOverlay:
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Capturable:
+		RequiresCondition: !being-warped && !full
+	Capturable@DRIVER_DEAD:
+		RequiresCondition: driver-dead && !full
+	Targetable@DRIVERKILL:
+		RequiresCondition: !driver-dead && !full
+
+chassis.jeep:
+	Inherits: ^VehicleTD
+	Inherits@turrets: ^light_turrets
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BERSERK: ^Berserk
+	Buildable:
+		Queue: Chassis
+		BuildPaletteOrder: 15
+		Prerequisites: weap.tow
+		Description: Fast scout & anti-infantry vehicle.\n  Can detect spies and cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Ranger
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 20
+		Speed: 157
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 14c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		Offset: -85,0,128
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped
+	WithMuzzleOverlay:
+
+chassis.buggy:
+	Inherits: ^VehicleTD
+	Inherits@turrets: ^light_turrets
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BERSERK: ^Berserk
+	RenderSprites:
+	Buildable:
+		Queue: Chassis
+		BuildPaletteOrder: 15
+		IconPalette: chrometd
+		Prerequisites: weap.tow
+		Description: Fast scout & anti-infantry vehicle.\n  Can detect spies and cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Buggy
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 14000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 157
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 14c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted@PRIMARY:
+		Offset: -43,0,128
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped
+	WithMuzzleOverlay:
+
+chassis.light_tank:
+	Inherits: ^Tank
+	Inherits@turrets: ^medium_turrets
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BERSERK: ^Berserk
+	Inherits: ^chassis_prototype
+	RenderSprites:
+	Buildable:
+		Queue: Chassis
+		BuildPaletteOrder: 0
+		IconPalette: chrometd
+		Prerequisites: weap.tow
+		Description: Fast, light tank chassis.\n  Can mount light turrets.\n
+	Valued:
+		Cost: 625
+	Tooltip:
+		Name: Light Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 41250
+	Armor:
+		Type: Heavy
+	Mobile:
+		Locomotor: Amphibious
+		Speed: 100
+	GrantConditionOnTerrain:
+		TerrainTypes: Water
+		Condition: onwater
+	Targetable:
+		TargetTypes: Ground, Vehicle, C4
+		RequiresCondition: !onwater && !parachute && !being-warped
+	Targetable@WATER:
+		TargetTypes: Ground, Vehicle, Water, Ship
+		RequiresCondition: onwater && (!parachute && !being-warped)
+	WithFacingSpriteBody:
+		RequiresCondition: !onwater || parachute
+	WithFacingSpriteBody@WATER:
+		Sequence: idle-water
+		Name: body-water
+		RequiresCondition: onwater && !parachute
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped || parachute
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: LTNK.Husk
+		RequiresCondition: !onwater && !being-warped
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+
+chassis.walker:
+	Inherits: ^Tank
+	Inherits@turrets: ^heavy_turrets
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@BERSERK: ^Berserk
+	Inherits: ^chassis_prototype
+	Buildable:
+		Queue: Chassis
+		BuildPaletteOrder: 0
+		IconPalette: chrometd
+		Prerequisites: weap.tow
+		Description: Tough combat battle-mech.\n  Can attack Aircraft.\n  Strong vs Infantry, Tanks
+	Valued:
+		Cost: 2000
+	Selectable:
+		Bounds: 30,40,0,0
+	Tooltip:
+		Name: Titan
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 100000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Locomotor: sheavytracked
+		Speed: 45
+		Voice: Move
+	Passenger:
+		PipType: Red
+		Weight: 5
+		Voice: Move
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: run
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped
+		Armaments: primary, secondary, tertiary
+		Voice: Attack
+	WithMuzzleOverlay:
+	Explodes:
+		Weapon: ArtilleryExplode
+		LoadedChance: 100
+	Voiced:
+		VoiceSet: GhostVoice
+	Carryable:
+		LocalOffset: 0,0,700
+
+chassis.mammoth:
+	Inherits: ^Tank
+	Inherits@turrets: ^heavy_turrets
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@BERSERK: ^Berserk
+	Inherits: ^chassis_prototype
+	Buildable:
+		Queue: Chassis
+		BuildPaletteOrder: 0
+		Prerequisites: weap.tow
+		Description: Big and slow tank, with anti-air.\nCan crush concrete walls.\n  Strong vs Vehicles, Infantry, Aircraft\n  Weak vs Energy Weapons
+	Valued:
+		Cost: 1700
+	Tooltip:
+		Name: Mammoth Chassis
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 78000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 52
+		Locomotor: heavytracked
+	Passenger:
+		Weight: 5
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: 4TNK.Husk
+		RequiresCondition: !being-warped
+	Selectable:
+		DecorationBounds: 44,38,0,-4
+	Carryable:
+		LocalOffset: 0,0,500
+	-Crushable:
+	ScriptTags:
+
+chassis.heavy_absorber:
+	Inherits: ^Tank
+	Inherits@turrets: ^heavy_turrets
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@BERSERK: ^Berserk
+	Inherits: ^chassis_prototype
+	Buildable:
+		Queue: Chassis
+		BuildPaletteOrder: 225
+		IconPalette: chrometd
+		Prerequisites: weap.tow
+		Description: Advanced heavy tank that can erase targets from existence.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft, Buildings
+	Valued:
+		Cost: 1700
+	Tooltip:
+		Name: Heavy Absorber
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 75000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 52
+		Locomotor: heavytracked
+		Voice: Move
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		Offset: -156,0,0
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped
+		Voice: Attack
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: CHPR.Husk
+		RequiresCondition: !being-warped
+	Selectable:
+		DecorationBounds: 44,38,0,-4
+	Carryable:
+		LocalOffset: 0,0,500
+	-Crushable:
+	Voiced:
+		VoiceSet: ChronoVoice
+	SpawnActorOnDeath:
+		Actor: CHPR.Husk
+		RequiresCondition: !being-warped

@@ -1,0 +1,533 @@
+^Cannon:
+	Inherits: ^Shell
+	ReloadDelay: 50
+	Range: 4c768
+	Report: cannon1.aud
+	Projectile: BulletCA
+		Speed: 682
+		Image: 120MM
+		Shadow: True
+		PointDefenseType: Bullet
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 4000
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+25mm:
+	Inherits: ^Cannon
+	ReloadDelay: 31
+	Report: cannon2.aud
+	Projectile: BulletCA
+		Speed: 853
+		Image: 50CAL
+	Warhead@1Dam: SpreadDamage
+		Damage: 3100
+
+25mmFRAG:
+	Inherits: ^Cannon
+	Inherits: ^ShellHE
+	Report: tnkfire3.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+
+30mm:
+	Inherits: 25mm
+	ReloadDelay: 36
+	Report: tnkfire3.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 3500
+
+90mm:
+	Inherits: ^Cannon
+	Inherits: ^ShellHeavy
+	Warhead@1Dam: SpreadDamage
+
+120mm:
+	Inherits: 90mm
+	Report: tnkfire4.aud
+
+120mmHEAT:
+	Inherits: 90mm
+	Inherits: ^ShellHE
+	Report: vmiratta.aud
+	Projectile: BulletCA
+		Speed: 682
+		Image: 120MMHEATN
+
+120mmHEAT.firerate:
+	Inherits: 120mmHEAT
+	ReloadDelay: 25
+
+125mm:
+	Inherits: ^Cannon
+	Inherits: ^ShellHeavy
+	ReloadDelay: 70
+	Burst: 2
+
+125mm.AP:
+	Inherits: 125mm
+	Inherits: ^ShellAP
+
+130mm:
+	Inherits: ^Cannon
+	Inherits: ^ShellHeavy
+	ReloadDelay: 90
+	Burst: 2
+	InvalidTargets: Air, Infantry
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+		InvalidTargets: Air
+
+130mm.Nuke:
+	Inherits: ^Cannon
+	Inherits: ^ShellHE
+	ReloadDelay: 90
+	Burst: 2
+	InvalidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+		Damage: 15000
+		Falloff: 100, 36, 12, 5, 0
+		Delay: 5
+		ValidTargets: Ground, Trees, Water, Underwater, Air
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@3Eff_impact: CreateEffect
+		Explosions: nuke3
+		ImpactSounds: kaboom1.aud
+	Warhead@4Radiation: CreateTintedCells
+		Level: 300
+		Falloff: 100, 25, 12
+		LayerName: radioactivity.weak
+
+130mmTD:
+	Inherits: 130mm
+	Report: tnkfire6.aud
+
+183mm:
+	Inherits: ^Cannon
+	Inherits: ^ShellAP
+	ReloadDelay: 70
+	Report: tnkd2_fire.aud
+	Range: 5c0
+	Projectile: BulletCA
+		Speed: 768
+		Image: 183MM
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+		InvalidTargets: Air
+
+183mm.Burst:
+	Inherits: 183mm
+	ReloadDelay: 100
+	Burst: 3
+	BurstDelays: 7
+
+TurretGun:
+	Inherits: ^Cannon
+	ReloadDelay: 30
+	Range: 7c0
+	Report: turret1.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+
+TurretGunTD:
+	Inherits: TurretGun
+	Report: tnkfire6.aud
+
+TitanGun:
+	Inherits: TurretGunTD
+	Inherits: ^ShellHeavy
+	ReloadDelay: 90
+	Report: vtadatta.aud, vtadattb.aud, vtadattc.aud
+	Range: 5c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 255
+		Damage: 14000
+
+^Artillery:
+	Inherits: ^Cannon
+	Inherits: ^ShellArtillery
+	ReloadDelay: 60
+	Warhead@1Dam: SpreadDamage
+		Damage: 14000
+
+155mm:
+	Inherits: ^Artillery
+	MinRange: 4c0
+	Report: tank5.aud
+	TargetActorCenter: true
+	Projectile: BulletCA
+		Speed: 195
+		Inaccuracy: 2c138
+	Warhead@1Dam: SpreadDamage
+		Damage: 6500
+
+155mm.BATF:
+	Inherits: 155mm
+	ReloadDelay: 80
+	Warhead@1Dam: SpreadDamage
+		Damage: 20000
+		Falloff: 100, 75, 50, 25
+	Warhead@3Eff: CreateEffect
+		Explosions: large_artillery_explosion
+		ImpactSounds: artyhit.aud, artyhit2.aud, artyhit3.aud
+
+155mmTD:
+	Inherits: 155mm
+	Report: tnkfire2.aud
+	Warhead@3Eff: CreateEffect
+		ImpactSounds: xplosml2.aud
+
+155mmTDM:
+	Inherits: 155mmTD
+	ReloadDelay: 70
+
+155mmSpec:
+	Inherits: 155mmTD
+	Inherits: ^Napalm
+	ReloadDelay: 150
+	MinRange: 4c0
+	Range: 14c0
+	Burst: 4
+	BurstDelays: 6
+	Projectile: BulletCA
+		Image: firetrail
+		TrailImage: smokey
+		TrailDelay: 1
+		Speed: 220
+		LaunchAngle: 90
+	Warhead@1Dam: SpreadDamage
+		Damage: 12000
+
+152mm:
+	Inherits: ^Artillery
+	Inherits: ^ShellArtillery
+	ReloadDelay: 150
+	Report: bgraatta.aud
+	MinRange: 2c0
+	Range: 10c768
+	TargetActorCenter: true
+	Projectile: BulletCA
+		Speed: 145
+		Image: 152mm
+		Inaccuracy: 1c138
+	Warhead@1Dam: SpreadDamage
+		Damage: 22000
+		Falloff: 100, 55, 20, 5
+		Versus:
+			Heavy: 82
+	Warhead@3Eff: CreateEffect
+		Explosions: large_artillery_explosion
+		ImpactSounds: artyhit.aud, artyhit2.aud, artyhit3.aud
+
+152mm.Concussion:
+	Inherits: 152mm
+	Warhead@Concussion1: GrantExternalCondition
+		Range: 1c512
+		Duration: 240
+		Condition: concussion
+		ValidTargets: Ground, Infantry, Vehicle, Ship
+	Warhead@Concussion2: GrantExternalCondition
+		Range: 3c0
+		Duration: 120
+		Condition: concussion
+		ValidTargets: Ground, Infantry, Vehicle, Ship
+	Warhead@5Shake: ShakeScreen
+		Duration: 5
+		Intensity: 1
+		Multiplier: 0.5,0.5
+
+152mm.Akatsiya:
+	Inherits: 155mm
+	ReloadDelay: 150
+	Range: 14c0
+	Burst: 2
+	Report: 2s3fire.aud
+	Projectile: BulletCA
+		Speed: 275
+	Warhead@1Dam: SpreadDamage
+	Warhead@3Eff: CreateEffect
+		ImpactSounds: kaboom15.aud
+	Warhead@Cluster: FireCluster
+		Weapon: ClusterBomb2S3
+		RandomClusterCount: 3
+		Dimensions: 3,3
+		Footprint: xxx x_x xxx
+
+8Inch:
+	Inherits: ^Artillery
+	MinRange: 5c0
+	ReloadDelay: 200
+	Range: 25c0
+	Burst: 2
+	Report: tank6.aud
+	TargetActorCenter: true
+	Projectile: BulletCA
+		LaunchAngle: 40
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 2000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+	Warhead@3Eff: CreateEffect
+		Explosions: building, building2
+	Warhead@4EffWater: CreateEffect
+		Explosions: large_splash
+
+8Inch.NoReport:
+	Inherits: 8Inch
+	-Report:
+
+JuggernautGun:
+	Inherits: ^Artillery
+	MinRange: 5c0
+	ReloadDelay: 100
+	Range: 13c0
+	Burst: 3
+	StartBurstReport: jugger1.aud
+	TargetActorCenter: true
+	Projectile: BulletCA
+		Inaccuracy: 2c138
+	Warhead@1Dam: SpreadDamage
+		Spread: 348
+		Damage: 1375
+		Falloff: 800, 368, 135, 50, 18, 7, 0
+	Warhead@4EffWater: CreateEffect
+		Explosions: large_splash
+
+2Inch:
+	Inherits: ^Cannon
+	ReloadDelay: 40
+	Range: 5c512
+	Report: cannon2.aud
+	InvalidTargets: Underwater
+	Projectile: BulletCA
+		Speed: 426
+
+Grenade:
+	Inherits: ^Artillery
+	ReloadDelay: 60
+	Range: 5c725
+	Report: grenade1.aud
+	Projectile: BulletCA
+		Speed: 136
+		Inaccuracy: 554
+		Image: BOMB
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 4000
+	Warhead@2Dam: SpreadDamage
+		Spread: 28
+		Damage: 3000
+		Versus:
+			None: 85
+			Light: 100
+			Reflector: 100
+			Heavy: 45
+			Wood: 100
+			Concrete: 100
+			Brick: 100
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+
+GrenadeE:
+	Inherits: Grenade
+	Range: 6c768
+
+EMPGrenade:
+	Inherits: Grenade
+	Projectile: Bullet
+		Image: empgren
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
+	Warhead@2Dam: SpreadDamage
+		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
+	Warhead@5emp: GrantExternalCondition
+		Range: 0c768
+		Duration: 45
+		Condition: empdisable
+		ValidTargets: Ground, Structure, Vehicle
+	Warhead@3Eff: CreateEffect
+		-ImpactSounds:
+	Warhead@6Eff: CreateEffect
+		Image: sparks_overlay
+		Explosions: idle
+		ExplosionPalette: tseffect-ignore-lighting-alpha75
+		ImpactSounds: expnew16.aud
+
+Grenade.Huey:
+	Inherits: Grenade
+	Report: cannon2.aud
+	Range: 8c768
+	ReloadDelay: 80
+	Burst: 10
+	BurstDelays: 2
+	Projectile: BulletCA
+		Speed: 186
+		Inaccuracy: 2c554
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 4000
+	-Warhead@2Dam: SpreadDamage
+
+MortarPrototype:
+	Inherits: ^Artillery
+	ReloadDelay: 90
+	Range: 11c0
+	MinRange: 1c0
+	Report: nade.aud
+	Projectile: BulletCA
+		Speed: 166
+		LaunchAngle: 92
+		Inaccuracy: 768
+		Image: BOMB
+	Warhead@1Dam: SpreadDamage
+		Damage: 5500
+		DamageTypes: Prone50Percent, TriggerProne, RadiationDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom15.aud
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: splashm1.aud, splashm2.aud, splashm3.aud
+
+Mortar:
+	Inherits: MortarPrototype
+
+MortarE:
+	Inherits: MortarPrototype
+	Range: 12c768
+
+Mortar.Chemical:
+	Inherits: MortarPrototype
+	ReloadDelay: 90
+	Range: 11c0
+	MinRange: 1c0
+	Report: nade.aud
+	Projectile: BulletCA
+		Speed: 166
+		LaunchAngle: 92
+		Inaccuracy: 768
+		Image: BOMB
+	Warhead@18Radio: CreateTintedCells
+		Spread: 1c0
+		Level: 50
+		Falloff: 100, 52, 10
+		MaxLevel: 300
+		LayerName: radioactivity.weak
+	Warhead@3Eff: CreateEffect
+		Explosions: small_chem
+		ExplosionPalette: temptd
+		ImpactSounds: firetrt1.aud
+
+MortarE.Chemical:
+	Inherits: Mortar
+	Range: 12c768
+
+DepthCharge:
+	Inherits: ^Artillery
+	-Report:
+	Range: 5c0
+	ValidTargets: Underwater
+	Projectile: BulletCA
+		Speed: 125
+		Image: BOMB
+		Inaccuracy: 128
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 6000
+		ValidTargets: Submarine
+		Versus:
+			Heavy: 100
+		DamageTypes: ExplosionDeath
+	Warhead@4EffWater: CreateEffect
+		Explosions: large_splash
+		ImpactSounds: h2obomb2.aud
+	Warhead@3Eff: CreateEffect
+		Explosions: small_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Submarine
+
+DepthCharge.destroyer:
+	Inherits: DepthCharge
+	Burst: 2
+	BurstDelays: 5
+	Projectile: Bullet
+		Inaccuracy: 256
+
+203mm:
+	Inherits: ^ShellArtillery
+	ReloadDelay: 100
+	InvalidTargets: Air
+	Range: 14c0
+	Burst: 3
+	BurstDelays: 10
+	MinRange: 2c0
+	Report: hvygun10.aud
+	Projectile: BulletCA
+		Speed: 244
+		Blockable: false
+		LaunchAngle: 50
+		Inaccuracy: 2c382
+		Image: 120MM
+		PointDefenseType: Bullet
+	Warhead@1Dam: SpreadDamage
+		InvalidTargets: Air
+		Spread: 626
+		Damage: 15000
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees
+	Warhead@3Eff: CreateEffect
+		Explosions: artillery_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, Ship, Trees
+	Warhead@4EffWater: CreateEffect
+		Explosions: large_splash
+		ImpactSounds: splashl1.aud, splashl2.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Ship, Structure, Bridge
+
+ClusterBomb:
+	Inherits: ^Artillery
+	-Report:
+	ReloadDelay: 60
+	Range: 4c0
+	Projectile: BulletCA
+		Speed: 96
+		LaunchAngle: 0, 32
+		Inaccuracy: 1c0
+		BounceCount: 0
+		Image: BOMB
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 10000
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Structure, Wall, Trees
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, Air, Ship, Trees
+	Warhead@4EffWater: CreateEffect
+		Explosions: med_splash
+		ImpactSounds: splashl1.aud, splashl2.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Ship, Structure, Bridge
+
+ClusterBomb2S3:
+	Inherits: ClusterBomb
+	Warhead@1Dam: SpreadDamage
+		Damage: 5750
+
+BATFGun:
+	Inherits: 25mm
+	Warhead@1Dam: SpreadDamage
+		Damage: 1750
