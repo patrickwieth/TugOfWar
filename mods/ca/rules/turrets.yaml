@@ -1,11 +1,5 @@
 ^turret_prototype:
 	Inherits: ^Tank
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 0
-		Prerequisites: ~infantry.ra, ~techlevel.infonly
-		Description: Turret Prototype
 	Tooltip:
 		Name: Turret
 	UpdatesPlayerStatistics:
@@ -42,29 +36,51 @@
 		CargoType: heavy_turret
 		Weight: 5
 
-CRATE.light_turret:
-	Inherits: ^Crate
+^turret_crate_prototype:
+	Inherits@1: ^SpriteActor
+	Interactable:
+		Bounds: 24,24
+	HiddenUnderFog:
+	Crate:
+		TerrainTypes: Clear, Rough, Road, Ore, Beach, Tiberium, BlueTiberium, Water
+	RenderSprites:
+		Palette: effect
+	WithCrateBody:
+		XmasImages: xcratea, xcrateb, xcratec, xcrated
+		LandSequence: land
+		WaterSequence: water
 	Parachutable:
 		FallRate: 26
-		KilledOnImpassableTerrain: true
+		KilledOnImpassableTerrain: false
 		ParachutingCondition: parachute
+	Passenger:
 	WithParachute:
-		ShadowImage: parach-shadow
-		ShadowSequence: idle
 		Image: parach
 		Sequence: idle
 		OpeningSequence: open
-		Offset: 0,0,200
+		ShadowImage: parach-shadow
+		ShadowSequence: idle
 		RequiresCondition: parachute
+	ConditionManager:
 	Buildable:
 		Queue: Chassis
 		BuildAtProductionType: Turret
 		BuildPaletteOrder: 0
-		IconPalette: chrometd
+		IconPalette: chrome
 		Prerequisites: ~vehicles.any, radar
 		Description: Paradrops a Turret Prototype
 	RevealsShroud:
 		Range: 2c0
+
+Crate.light_turret:
+	Inherits: ^turret_crate_prototype
+	Buildable:
+		Prerequisites: ~vehicles.any, radar
+		Description: Paradrops a Light Turret Prototype.\n Light Turrets can be placed on all chassis.
+	Tooltip:
+		Name: Light Turret Crate
+		GenericName: Crate
+		ShowOwnerRow: false
 	GiveUnitCrateAction@batf_turret:
 		SelectionShares: 5
 		Units: batf_turret
@@ -136,6 +152,34 @@ CRATE.light_turret:
 	GiveUnitCrateAction@ship_turret3:
 		SelectionShares: 5
 		Units: ship_turret3
+
+Crate.medium_turret:
+	Inherits: ^turret_crate_prototype
+	Buildable:
+		Prerequisites: ~vehicles.any, radar
+		Description: Paradrops a Medium Turret Prototype.\n Medium Turrets can be placed on medium and heavy chassis.
+	Tooltip:
+		Name: Heavy Turret Crate
+		GenericName: Crate
+		ShowOwnerRow: false
+	GiveUnitCrateAction@batf_turret:
+		SelectionShares: 5
+		Units: batf_turret
+		ValidFactions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, eagle, nod, blackh, marked, legion
+
+Crate.heavy_turret:
+	Inherits: ^turret_crate_prototype
+	Buildable:
+		Prerequisites: ~vehicles.any, radar
+		Description: Paradrops a Heavy Turret Prototype.\n Heavy Turrets can only be placed on heavy chassis.
+	Tooltip:
+		Name: Heavy Turret Crate
+		GenericName: Crate
+		ShowOwnerRow: false
+	GiveUnitCrateAction@batf_turret:
+		SelectionShares: 5
+		Units: batf_turret
+		ValidFactions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, eagle, nod, blackh, marked, legion
 
 ^light_turrets:
 	Turreted:

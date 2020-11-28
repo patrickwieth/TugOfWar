@@ -1,3 +1,43 @@
+
+crate.light_turret:
+	idle: xcratea
+		ZOffset: -511
+	land: xcratea
+		Start: 1
+		ZOffset: -511
+	water: xcratea
+		Start: 2
+		Length: 4
+		Tick: 500
+		ZOffset: -511
+	icon: lightturreticon
+
+crate.medium_turret:
+	idle: xcrateb
+		ZOffset: -511
+	land: xcrateb
+		Start: 1
+		ZOffset: -511
+	water: xcrateb
+		Start: 2
+		Length: 4
+		Tick: 500
+		ZOffset: -511
+	icon: mediumturreticon
+
+crate.heavy_turret:
+	idle: xcratec
+		ZOffset: -511
+	land: xcratec
+		Start: 1
+		ZOffset: -511
+	water: xcratec
+		Start: 2
+		Length: 4
+		Tick: 500
+		ZOffset: -511
+	icon: heavyturreticon
+
 ^light_turrets:
 	muzzle: minigun
 	muzzle-gunfire2: gunfire2

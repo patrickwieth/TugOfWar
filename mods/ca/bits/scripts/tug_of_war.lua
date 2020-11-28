@@ -186,9 +186,12 @@ Trigger.OnAnyProduction(
   function(producer, produced, productionType)
     if producer.Type == 'weap.auto'
     then
-			if producer.Owner.IsAlliedWith(mp0) and teamApower > 1 then
-				Media.DisplayMessage(" in yes")
+			if producer.Owner.IsAlliedWith(mp0) and teamApower == 1.5 then
+				Media.DisplayMessage("buff1")
 				producer.GrantCondition("TeamBalance")
+			elseif producer.Owner.IsAlliedWith(mp0) and teamApower == 2 then
+				Media.DisplayMessage("buff2")
+				producer.GrantCondition("TeamBalance2")
 			elseif not producer.Owner.IsAlliedWith(mp0) and teamBpower > 1 then
 				producer.GrantCondition("TeamBalance")
 			end

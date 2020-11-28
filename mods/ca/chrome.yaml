@@ -16,9 +16,9 @@
 	Image3x: glyphs-3x.png
 
 ^LoadScreen:
-	Image: loadscreen.png
-	Image2x: loadscreen-2x.png
-	Image3x: loadscreen-3x.png
+	Image: loadscreenB.png
+	Image2x: loadscreen-2xB.png
+	Image3x: loadscreen-3xB.png
 
 sidebar-allies:
 	Inherits: ^Sidebar
