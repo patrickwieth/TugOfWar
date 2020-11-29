@@ -81,14 +81,7 @@ Crate.light_turret:
 		Name: Light Turret Crate
 		GenericName: Crate
 		ShowOwnerRow: false
-	GiveUnitCrateAction@batf_turret:
-		SelectionShares: 5
-		Units: batf_turret
-		ValidFactions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, eagle, nod, blackh, marked, legion
-	GiveUnitCrateAction@sling_turret:
-		SelectionShares: 5
-		Units: sling_turret
-		ValidFactions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, eagle, nod, blackh, marked, legion
+	Inherits: batf_turret_crate
 	GiveUnitCrateAction@recon_turret:
 		SelectionShares: 5
 		Units: recon_turret
@@ -162,10 +155,7 @@ Crate.medium_turret:
 		Name: Heavy Turret Crate
 		GenericName: Crate
 		ShowOwnerRow: false
-	GiveUnitCrateAction@batf_turret:
-		SelectionShares: 5
-		Units: batf_turret
-		ValidFactions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, eagle, nod, blackh, marked, legion
+	Inherits: batf_turret_crate
 
 Crate.heavy_turret:
 	Inherits: ^turret_crate_prototype
@@ -185,27 +175,8 @@ Crate.heavy_turret:
 	Turreted:
 		TurnSpeed: 12
 		Offset: 20,0,0
-	Armament@batfturret:                         ## BATF Turret
-		Weapon: BATFGun
-		LocalOffset: -200,0,300
-		MuzzleSequence: muzzle
-		RequiresCondition: batfturret
-	WithSpriteTurret@batfturret:
-		RequiresCondition: batfturret
-		Sequence: batfturret
-	Armament@slingturret:                         ## Slingshot Turret
-		Recoil: 10
-		Weapon: SlingshotAA
-		MuzzleSequence: muzzle
-		MuzzlePalette: tdeffect
-		LocalOffset: 450,170,400, 450,-170,400
-		PauseOnCondition: empdisable || being-warped
-		RequiresCondition: slingturret
-	WithSpriteTurret@slingturret:
-		RequiresCondition: slingturret
-		Sequence: slingturret
-		Palette: overlayplayertd
-		IsPlayerPalette: true
+	Inherits: batf_turret_mounted
+	Inherits: sling_turret_mounted
 	RevealsShroud@reconturret:                         ## Recon Turret
 		Range: 14c0
 		MinRange: 8c0
@@ -485,8 +456,6 @@ Crate.heavy_turret:
 		LoadingCondition: notmobile
 		LoadedCondition: full
 		PassengerConditions:
-			batf_turret: batfturret
-			sling_turret: slingturret
 			recon_turret: reconturret
 			medic_turret: medicturret
 			mini_tesla: minitesla
@@ -981,10 +950,7 @@ Crate.heavy_turret:
 			akatsiya_turret: akatsiyaturret
 	Inherits: ^ammo
 
-^ammo:
-	Cargo:
-		PassengerConditions:
-			shell.ap: shell.ap
+# Light Turrets
 
 batf_turret:
 	Inherits: ^light_turret_prototype
@@ -994,6 +960,25 @@ batf_turret:
 		Description: Turret with Mini Cannon
 	Tooltip:
 		Name: BATF Turret
+
+batf_turret_mounted:
+	Armament@batfturret:                         ## BATF Turret
+		Weapon: BATFGun
+		LocalOffset: -200,0,300
+		MuzzleSequence: muzzle
+		RequiresCondition: batfturret
+	WithSpriteTurret@batfturret:
+		RequiresCondition: batfturret
+		Sequence: batfturret
+	Cargo:
+		PassengerConditions:
+			batf_turret: batfturret
+
+batf_turret_crate:
+	GiveUnitCrateAction@batf_turret:
+		SelectionShares: 5
+		Units: batf_turret
+		ValidFactions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, eagle, nod, blackh, marked, legion
 
 sling_turret:
 	Inherits: ^light_turret_prototype
@@ -1005,6 +990,31 @@ sling_turret:
 		Description: Turret with Anti-Air Barrels
 	Tooltip:
 		Name: Slingshot Turret
+
+sling_turret_mounted:
+	Armament@slingturret:                         ## Slingshot Turret
+		Recoil: 10
+		Weapon: SlingshotAA
+		MuzzleSequence: muzzle
+		MuzzlePalette: tdeffect
+		LocalOffset: 450,170,400, 450,-170,400
+		PauseOnCondition: empdisable || being-warped
+		RequiresCondition: slingturret
+	WithSpriteTurret@slingturret:
+		RequiresCondition: slingturret
+		Sequence: slingturret
+		Palette: overlayplayertd
+		IsPlayerPalette: true
+	Cargo:
+		PassengerConditions:
+			sling_turret: slingturret
+
+sling_turret_crate:
+	GiveUnitCrateAction@sling_turret:
+		SelectionShares: 5
+		Units: sling_turret
+		ValidFactions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, eagle, nod, blackh, marked, legion
+
 
 recon_turret:
 	Inherits: ^light_turret_prototype
