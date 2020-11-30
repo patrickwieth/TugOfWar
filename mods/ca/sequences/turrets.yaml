@@ -124,6 +124,11 @@ crate.heavy_turret:
 		Start: 32
 		Facings: 32
 		UseClassicFacingFudge: True
+	flakturret: ftrk
+		Start: 32
+		Facings: 32
+		Offset: 0,-5
+		UseClassicFacingFudge: True
 
 ^medium_turrets:
 	ltnkturret: ltnk
@@ -149,11 +154,6 @@ crate.heavy_turret:
 		UseClassicFacingFudge: True
 
 ^heavy_turrets:
-	flakturret: ftrk
-		Start: 32
-		Facings: 32
-		Offset: 0,-5
-		UseClassicFacingFudge: True
 	slingturret: slng
 		Start: 32
 		Facings: 32
