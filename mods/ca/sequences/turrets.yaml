@@ -285,7 +285,11 @@ crate.heavy_turret:
 		Start: 32
 		Facings: 32
 		UseClassicFacingFudge: True
-
+	obeliskturret: obliturret
+		Start: 0
+		Facings: 32
+		Offset: 0,-6
+		UseClassicFacingFudge: True
 
 # light turrets
 
@@ -457,6 +461,15 @@ buggy_turret:
 		UseClassicFacingFudge: True
 	icon: bggyicon
 
+flak_turret:
+	Inherits: ^VehicleOverlays
+	idle: ftrk
+		Start: 32
+		Facings: 32
+		UseClassicFacingFudge: True
+	icon: ftrkicon
+
+
 ## medium turrets
 
 ltnk_turret:
@@ -505,14 +518,6 @@ btr_turret:
 	icon: btricon
 
 ## heavy turrets
-
-flak_turret:
-	Inherits: ^VehicleOverlays
-	idle: ftrk
-		Start: 32
-		Facings: 32
-		UseClassicFacingFudge: True
-	icon: ftrkicon
 
 double_turret:
 	Inherits: ^VehicleOverlays
@@ -704,3 +709,10 @@ akatsiya_turret:
 		Facings: 32
 		UseClassicFacingFudge: True
 	icon: 2s3icnh
+
+obelisk_turret:
+	Inherits: ^VehicleOverlays
+	idle: obliturret
+		Start: 0
+		Facings: 32
+	icon: ifvicon
