@@ -82,69 +82,28 @@ Crate.light_turret:
 		GenericName: Crate
 		ShowOwnerRow: false
 	Inherits: batf_turret_crate
-	GiveUnitCrateAction@recon_turret:
-		SelectionShares: 5
-		Units: recon_turret
-	GiveUnitCrateAction@medic_turret:
-		SelectionShares: 5
-		Units: medic_turret
-	GiveUnitCrateAction@sam_turret:
-		SelectionShares: 5
-		Units: sam_turret
-	GiveUnitCrateAction@gun_turret:
-		SelectionShares: 5
-		Units: gun_turret
-	GiveUnitCrateAction@frag_turret:
-		SelectionShares: 5
-		Units: frag_turret
-	GiveUnitCrateAction@flame_turret:
-		SelectionShares: 5
-		Units: flame_turret
-	GiveUnitCrateAction@chem_turret:
-		SelectionShares: 5
-		Units: chem_turret
-	GiveUnitCrateAction@laser_turret:
-		SelectionShares: 5
-		Units: laser_turret
-	GiveUnitCrateAction@desolator_turret:
-		SelectionShares: 5
-		Units: desolator_turret
-	GiveUnitCrateAction@commando_turret:
-		SelectionShares: 5
-		Units: commando_turret
-	GiveUnitCrateAction@repair_turret:
-		SelectionShares: 5
-		Units: repair_turret
-	GiveUnitCrateAction@ship_turret:
-		SelectionShares: 5
-		Units: ship_turret
-	GiveUnitCrateAction@jeep_turret:
-		SelectionShares: 5
-		Units: jeep_turret
-	GiveUnitCrateAction@humvee_turret:
-		SelectionShares: 5
-		Units: humvee_turret
-	GiveUnitCrateAction@vulcan_turret:
-		SelectionShares: 5
-		Units: vulcan_turret
-	GiveUnitCrateAction@buggy_turret:
-		SelectionShares: 5
-		Units: buggy_turret
-	GiveUnitCrateAction@flak_turret:
-		SelectionShares: 5
-		Units: flak_turret
-	GiveUnitCrateAction@mini_tesla:
-		SelectionShares: 5
-		Units: mini_tesla
-	GiveUnitCrateAction@sam_turret2:
-		SelectionShares: 5
-		Units: sam_turret2
-	GiveUnitCrateAction@ship_turret2:
-		SelectionShares: 5
-		Units: ship_turret2
-	GiveUnitCrateAction@ship_turret3:
-		SelectionShares: 5
-		Units: ship_turret3
+	Inherits: sling_turret_crate
+	Inherits: recon_turret_crate
+	Inherits: medic_turret_crate
+	Inherits: mini_tesla_crate
+	Inherits: sam_turret_crate
+	Inherits: sam_turret2_crate
+	Inherits: gun_turret_crate
+	Inherits: frag_turret_crate
+	Inherits: flame_turret_crate
+	Inherits: chem_turret_crate
+	Inherits: laser_turret_crate
+	Inherits: desolator_turret_crate
+	Inherits: commando_turret_crate
+	Inherits: repair_turret_crate
+	Inherits: ship_turret_crate
+	Inherits: ship_turret2_crate
+	Inherits: ship_turret3_crate
+	Inherits: jeep_turret_crate
+	Inherits: humvee_turret_crate
+	Inherits: vulcan_turret_crate
+	Inherits: buggy_turret_crate
+	Inherits: flak_turret_crate
 
 Crate.medium_turret:
 	Inherits: ^turret_crate_prototype
@@ -273,21 +232,6 @@ Crate.heavy_turret:
 ^heavy_turrets:
 	Turreted:
 		TurnSpeed: 4
-	Armament@flakturret:                         ## Flak Turret
-		Weapon: FLAK-23-AA
-		Recoil: 85
-		LocalOffset: 512,0,192
-		MuzzleSequence: muzzle
-		RequiresCondition: flakturret
-	Armament@AG:
-		Weapon: FLAK-23-AG
-		Recoil: 85
-		LocalOffset: 512,0,192
-		MuzzleSequence: muzzle
-		RequiresCondition: flakturret
-	WithSpriteTurret@flakturret:
-		RequiresCondition: flakturret
-		Sequence: flakturret
 	Armament@doubleturret:                          ## Double Turret
 		Weapon: 125mm
 		Recoil: 128
@@ -752,6 +696,10 @@ recon_turret_mounted:
 		PassengerConditions:
 			recon_turret: reconturret
 
+recon_turret_crate:
+	GiveUnitCrateAction@recon_turret:
+		SelectionShares: 5
+		Units: recon_turret
 
 medic_turret:
 	Inherits: ^light_turret_prototype
@@ -777,6 +725,11 @@ medic_turret_mounted:
 		PassengerConditions:
 			medic_turret: medicturret
 
+medic_turret_crate:
+	GiveUnitCrateAction@medic_turret:
+		SelectionShares: 5
+		Units: medic_turret
+
 
 mini_tesla:
 	Inherits: ^light_turret_prototype
@@ -799,6 +752,11 @@ mini_tesla_mounted:
 	Cargo:
 		PassengerConditions:
 			mini_tesla: minitesla
+
+mini_tesla_crate:
+	GiveUnitCrateAction@mini_tesla:
+		SelectionShares: 5
+		Units: mini_tesla
 
 
 sam_turret:
@@ -827,6 +785,10 @@ sam_turret_mounted:
 		PassengerConditions:
 			sam_turret: samturret
 
+sam_turret_crate:
+	GiveUnitCrateAction@sam_turret:
+		SelectionShares: 5
+		Units: sam_turret
 
 
 sam_turret2:
@@ -855,8 +817,10 @@ sam_turret2_mounted:
 		PassengerConditions:
 			sam_turret2: samturret2
 
-
-
+sam_turret2_crate:
+	GiveUnitCrateAction@sam_turret2:
+		SelectionShares: 5
+		Units: sam_turret2
 
 
 gun_turret:
@@ -881,6 +845,11 @@ gun_turret_mounted:
 		PassengerConditions:
 			gun_turret: gunturret
 
+gun_turret_crate:
+	GiveUnitCrateAction@gun_turret:
+		SelectionShares: 5
+		Units: gun_turret
+
 
 frag_turret:
 	Inherits: ^light_turret_prototype
@@ -903,6 +872,11 @@ frag_turret_mounted:
 	Cargo:
 		PassengerConditions:
 			frag_turret: fragturret
+
+frag_turret_crate:
+	GiveUnitCrateAction@frag_turret:
+		SelectionShares: 5
+		Units: frag_turret
 
 
 flame_turret:
@@ -929,6 +903,11 @@ flame_turret_mounted:
 		PassengerConditions:
 			flame_turret: flameturret
 
+flame_turret_crate:
+	GiveUnitCrateAction@flame_turret:
+		SelectionShares: 5
+		Units: flame_turret
+
 
 chem_turret:
 	Inherits: ^light_turret_prototype
@@ -954,6 +933,11 @@ chem_turret_mounted:
 		PassengerConditions:
 			chem_turret: chemturret
 
+chem_turret_crate:
+	GiveUnitCrateAction@chem_turret:
+		SelectionShares: 5
+		Units: chem_turret
+
 
 laser_turret:
 	Inherits: ^light_turret_prototype
@@ -964,6 +948,7 @@ laser_turret:
 	Tooltip:
 		Name: Laser Turret
 
+laser_turret_mounted:
 	Armament@laserturret:                         ## Laser Turret
 		Weapon: LaserTur
 		LocalOffset: 385,0,300
@@ -975,6 +960,11 @@ laser_turret:
 		PassengerConditions:
 			laser_turret: laserturret
 
+laser_turret_crate:
+	GiveUnitCrateAction@laser_turret:
+		SelectionShares: 5
+		Units: laser_turret
+
 
 desolator_turret:
 	Inherits: ^light_turret_prototype
@@ -985,6 +975,7 @@ desolator_turret:
 	Tooltip:
 		Name: Desolator Turret
 
+desolator_turret_mounted:
 	Armament@desolatorturret:                         ## Desolator Turret
 		Weapon: RadBeamWeapon
 		LocalOffset: 400,0,213
@@ -996,6 +987,11 @@ desolator_turret:
 		PassengerConditions:
 			desolator_turret: desolatorturret
 
+desolator_turret_crate:
+	GiveUnitCrateAction@desolator_turret:
+		SelectionShares: 5
+		Units: desolator_turret
+
 
 commando_turret:
 	Inherits: ^light_turret_prototype
@@ -1006,6 +1002,7 @@ commando_turret:
 	Tooltip:
 		Name: Commando Turret
 
+commando_turret_mounted:
 	Armament@commandoturret:                         ## Commando Turret
 		Weapon: smg
 		MuzzleSequence: muzzle
@@ -1018,6 +1015,11 @@ commando_turret:
 		PassengerConditions:
 			commando_turret: commandoturret
 
+commando_turret_crate:
+	GiveUnitCrateAction@commando_turret:
+		SelectionShares: 5
+		Units: commando_turret
+
 
 repair_turret:
 	Inherits: ^light_turret_prototype
@@ -1028,6 +1030,7 @@ repair_turret:
 	Tooltip:
 		Name: Repair Turret
 
+repair_turret_mounted:
 	Armament@repairturret:                         ## Repair Turret
 		Weapon: RepairIFV
 		LocalOffset: 0,0,213
@@ -1058,6 +1061,11 @@ repair_turret:
 		PassengerConditions:
 			repair_turret: repairturret
 
+repair_turret_crate:
+	GiveUnitCrateAction@repair_turret:
+		SelectionShares: 5
+		Units: repair_turret
+
 
 ship_turret:
 	Inherits: ^light_turret_prototype
@@ -1068,6 +1076,7 @@ ship_turret:
 	Tooltip:
 		Name: Mini Rocket Launcher
 
+ship_turret_mounted:
 	Armament@shipturret:                         ## Ship Turret
 		Weapon: 90mm
 		Recoil: 128
@@ -1082,6 +1091,11 @@ ship_turret:
 		PassengerConditions:
 			ship_turret: shipturret
 
+ship_turret_crate:
+	GiveUnitCrateAction@ship_turret:
+		SelectionShares: 5
+		Units: ship_turret
+
 
 ship_turret2:
 	Inherits: ^light_turret_prototype
@@ -1092,6 +1106,7 @@ ship_turret2:
 	Tooltip:
 		Name: Railgun
 
+ship_turret2_mounted:
 	Armament@shipturret2:                         ## Ship Turret 2
 		Weapon: 90mm
 		Recoil: 128
@@ -1106,6 +1121,11 @@ ship_turret2:
 		PassengerConditions:
 			ship_turret2: shipturret2
 
+ship_turret2_crate:
+	GiveUnitCrateAction@ship_turret2:
+		SelectionShares: 5
+		Units: ship_turret2
+
 
 ship_turret3:
 	Inherits: ^light_turret_prototype
@@ -1116,6 +1136,7 @@ ship_turret3:
 	Tooltip:
 		Name: Small Double Barrel Turret
 
+ship_turret3_mounted:
 	Armament@shipturret3:                         ## Ship Turret 3
 		Weapon: 8inch
 		Recoil: 128
@@ -1130,6 +1151,11 @@ ship_turret3:
 		PassengerConditions:
 			ship_turret3: shipturret3
 
+ship_turret3_crate:
+	GiveUnitCrateAction@ship_turret3:
+		SelectionShares: 5
+		Units: ship_turret3
+
 
 jeep_turret:
 	Inherits: ^light_turret_prototype
@@ -1140,6 +1166,7 @@ jeep_turret:
 	Tooltip:
 		Name: Jeep Turret
 
+jeep_turret_mounted:
 	Armament@jeepturret:                         ## Jeep Turret
 		Weapon: M60mg
 		MuzzleSequence: muzzle
@@ -1151,6 +1178,11 @@ jeep_turret:
 	Cargo:
 		PassengerConditions:
 			jeep_turret: jeepturret
+
+jeep_turret_crate:
+	GiveUnitCrateAction@jeep_turret:
+		SelectionShares: 5
+		Units: jeep_turret
 
 
 humvee_turret:
@@ -1164,6 +1196,7 @@ humvee_turret:
 	Tooltip:
 		Name: Humvee Turret
 
+humvee_turret_mounted:
 	Armament@humveeturret:                         ## Humvee Turret
 		Weapon: M60mgTD
 		LocalOffset: 171,0,85
@@ -1178,6 +1211,11 @@ humvee_turret:
 		PassengerConditions:
 			humvee_turret: humveeturret
 
+humvee_turret_crate:
+	GiveUnitCrateAction@humvee_turret:
+		SelectionShares: 5
+		Units: humvee_turret
+
 
 vulcan_turret:
 	Inherits: ^light_turret_prototype
@@ -1190,6 +1228,7 @@ vulcan_turret:
 	Tooltip:
 		Name: Vulcan Turret
 
+vulcan_turret_mounted:
 	Armament@vulcanturret0:                         ## Vulcan Turret
 		Weapon: MGatt.0
 		LocalOffset: 220,0,350
@@ -1268,6 +1307,11 @@ vulcan_turret:
 		PassengerConditions:
 			vulcan_turret: vulcanturret
 
+vulcan_turret_crate:
+	GiveUnitCrateAction@vulcan_turret:
+		SelectionShares: 5
+		Units: vulcan_turret
+
 
 buggy_turret:
 	Inherits: ^light_turret_prototype
@@ -1280,6 +1324,7 @@ buggy_turret:
 	Tooltip:
 		Name: Buggy Turret
 
+buggy_turret_mounted:
 	Armament@buggyturret:                         ## Buggy Turret
 		Weapon: M60mgTD
 		Turret: primary
@@ -1295,6 +1340,11 @@ buggy_turret:
 		PassengerConditions:
 			buggy_turret: buggyturret
 
+buggy_turret_crate:
+	GiveUnitCrateAction@buggy_turret:
+		SelectionShares: 5
+		Units: buggy_turret
+
 
 flak_turret:
 	Inherits: ^light_turret_prototype
@@ -1308,6 +1358,27 @@ flak_turret:
 		PassengerConditions:
 			flak_turret: flakturret
 
+flak_turret_mounted:
+	Armament@flakturret:                         ## Flak Turret
+		Weapon: FLAK-23-AA
+		Recoil: 85
+		LocalOffset: 512,0,192
+		MuzzleSequence: muzzle
+		RequiresCondition: flakturret
+	Armament@AG:
+		Weapon: FLAK-23-AG
+		Recoil: 85
+		LocalOffset: 512,0,192
+		MuzzleSequence: muzzle
+		RequiresCondition: flakturret
+	WithSpriteTurret@flakturret:
+		RequiresCondition: flakturret
+		Sequence: flakturret
+
+flak_turret_crate:
+	GiveUnitCrateAction@flak_turret:
+		SelectionShares: 5
+		Units: flak_turret
 
 ## Medium Turret Units
 
