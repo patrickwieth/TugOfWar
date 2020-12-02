@@ -152,8 +152,6 @@ crate.heavy_turret:
 	btrturret: samtur
 		Facings: 32
 		UseClassicFacingFudge: True
-
-^heavy_turrets:
 	slingturret: slng
 		Start: 32
 		Facings: 32
@@ -174,24 +172,6 @@ crate.heavy_turret:
 	atomicdoubleturret: 3tnki
 		Facings: 32
 		Offset: 0,-5
-		UseClassicFacingFudge: True
-	atomicheavydoubleturret: 4tnki
-		Facings: 32
-		UseClassicFacingFudge: True
-	heavydoubleturret: 4tnk
-		Start: 32
-		Facings: 32
-		UseClassicFacingFudge: True
-	heavydoubleturret2: htnk
-		Start: 32
-		Facings: 32
-		UseClassicFacingFudge: True
-	ionturret: htnktion
-		Start: 0
-		Facings: 32
-		UseClassicFacingFudge: True
-	teslaturret: 4tnkteslatur
-		Facings: 32
 		UseClassicFacingFudge: True
 	tesladome: ttnk
 		Start: 32
@@ -221,13 +201,6 @@ crate.heavy_turret:
 		Facings: 32
 		Offset: 0,-6
 		UseClassicFacingFudge: True
-	titanturret: titanturr
-		Facings: 32
-		Offset: 0,-4
-		UseClassicFacingFudge: True
-	juggerturret: juggt
-		Facings: 32
-		UseClassicFacingFudge: True
 	sonicturret: sonict
 		Facings: 32
 		UseClassicFacingFudge: True
@@ -253,14 +226,6 @@ crate.heavy_turret:
 		Facings: 32
 		Offset: 0,-5
 		UseClassicFacingFudge: True
-	chronoturret: chpr
-		Start: 64
-		Facings: 32
-		UseClassicFacingFudge: True
-	chronoturretactive: chpr
-		Start: 32
-		Facings: 32
-		UseClassicFacingFudge: True
 	mediumturret: 2tnk
 		Start: 32
 		Facings: 32
@@ -280,6 +245,41 @@ crate.heavy_turret:
 		Start: 32
 		Facings: 32
 		Offset: 0,-4
+		UseClassicFacingFudge: True
+
+^heavy_turrets:
+	atomicheavydoubleturret: 4tnki
+		Facings: 32
+		UseClassicFacingFudge: True
+	heavydoubleturret: 4tnk
+		Start: 32
+		Facings: 32
+		UseClassicFacingFudge: True
+	heavydoubleturret2: htnk
+		Start: 32
+		Facings: 32
+		UseClassicFacingFudge: True
+	ionturret: htnktion
+		Start: 0
+		Facings: 32
+		UseClassicFacingFudge: True
+	teslaturret: 4tnkteslatur
+		Facings: 32
+		UseClassicFacingFudge: True
+	titanturret: titanturr
+		Facings: 32
+		Offset: 0,-4
+		UseClassicFacingFudge: True
+	juggerturret: juggt
+		Facings: 32
+		UseClassicFacingFudge: True
+	chronoturret: chpr
+		Start: 64
+		Facings: 32
+		UseClassicFacingFudge: True
+	chronoturretactive: chpr
+		Start: 32
+		Facings: 32
 		UseClassicFacingFudge: True
 	akatsiyaturret: 2s3
 		Start: 32

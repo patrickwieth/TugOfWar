@@ -1,6 +1,19 @@
+
+^light_chassis:
+	Inherits: ^light_turrets
+
+^medium_chassis:
+	Inherits: ^light_turrets
+	Inherits: ^medium_turrets
+
+^heavy_chassis:
+	Inherits: ^light_turrets
+	Inherits: ^medium_turrets
+	Inherits: ^heavy_turrets
+
 chassis.jeep:
 	Inherits: ^VehicleOverlays
-	Inherits: ^light_turrets
+	Inherits: ^light_chassis
 	idle: hmmv
 		Facings: 32
 		UseClassicFacingFudge: True
@@ -11,7 +24,7 @@ chassis.jeep:
 
 chassis.buggy:
 	Inherits: ^VehicleOverlays
-	Inherits: ^light_turrets
+	Inherits: ^light_chassis
 	idle: bggy
 		Facings: 32
 		UseClassicFacingFudge: True
@@ -25,7 +38,7 @@ chassis.buggy:
 
 chassis.light_tank:
 	Inherits: ^VehicleOverlays
-	Inherits: ^medium_turrets
+	Inherits: ^medium_chassis
 	idle: ltnk-ra
 		Facings: 32
 		UseClassicFacingFudge: True
@@ -38,7 +51,7 @@ chassis.light_tank:
 
 chassis.mammoth:
 	Inherits: ^VehicleOverlays
-	Inherits: ^heavy_turrets
+	Inherits: ^heavy_chassis
 	idle: 4tnk
 		Facings: 32
 		UseClassicFacingFudge: True
@@ -46,9 +59,19 @@ chassis.mammoth:
 		Length: 5
 	icon: 4tnkicon
 
+chassis.mammoth2:
+	Inherits: ^VehicleOverlays
+	Inherits: ^heavy_chassis
+	idle: htnk
+		Facings: 32
+		UseClassicFacingFudge: True
+	muzzle: gunfire2
+		Length: 5
+	icon: htnkicnh
+
 chassis.walker:
 	Inherits: ^VehicleOverlays
-	Inherits: ^heavy_turrets
+	Inherits: ^heavy_chassis
 	stand: titanlegs-ra
 		Facings: 16
 	run: titanlegs-ra
@@ -63,7 +86,7 @@ chassis.walker:
 
 chassis.heavy_absorber:
 	Inherits: ^VehicleOverlays
-	Inherits: ^heavy_turrets
+	Inherits: ^heavy_chassis
 	idle: chpr
 		Facings: 32
 		UseClassicFacingFudge: True
@@ -74,7 +97,7 @@ chassis.heavy_absorber:
 
 chassis.armored_fighting_vehicle:
 	Inherits: ^VehicleOverlays
-	Inherits: ^light_turrets
+	Inherits: ^light_chassis
 	idle: ifv
 		Facings: 32
 		UseClassicFacingFudge: True

@@ -13,7 +13,7 @@ chassis.armored_fighting_vehicle:
 	Inherits: ^chassis_prototype
 	Buildable:
 		Queue: Chassis
-		BuildPaletteOrder: 0
+		BuildPaletteOrder: 4
 		Prerequisites: weap.tow
 		Description: Adaptable infantry transport.\n  Can attack Aircraft.\n  Strong vs Light Armor, Aircraft\n  Weak vs Infantry, Tanks\n  Special Ability: Transform
 	Valued:
@@ -58,7 +58,7 @@ chassis.jeep:
 	Inherits@BERSERK: ^Berserk
 	Buildable:
 		Queue: Chassis
-		BuildPaletteOrder: 15
+		BuildPaletteOrder: 5
 		Prerequisites: weap.tow
 		Description: Fast scout & anti-infantry vehicle.\n  Can detect spies and cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
@@ -95,7 +95,7 @@ chassis.buggy:
 	RenderSprites:
 	Buildable:
 		Queue: Chassis
-		BuildPaletteOrder: 15
+		BuildPaletteOrder: 6
 		IconPalette: chrometd
 		Prerequisites: weap.tow
 		Description: Fast scout & anti-infantry vehicle.\n  Can detect spies and cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
@@ -133,7 +133,7 @@ chassis.light_tank:
 	RenderSprites:
 	Buildable:
 		Queue: Chassis
-		BuildPaletteOrder: 0
+		BuildPaletteOrder: 7
 		IconPalette: chrometd
 		Prerequisites: weap.tow
 		Description: Fast, light tank chassis.\n  Can mount light turrets.\n
@@ -189,7 +189,7 @@ chassis.walker:
 	Inherits: ^chassis_prototype
 	Buildable:
 		Queue: Chassis
-		BuildPaletteOrder: 0
+		BuildPaletteOrder: 8
 		IconPalette: chrometd
 		Prerequisites: weap.tow
 		Description: Tough combat battle-mech.\n  Can attack Aircraft.\n  Strong vs Infantry, Tanks
@@ -247,13 +247,60 @@ chassis.mammoth:
 	Inherits: ^chassis_prototype
 	Buildable:
 		Queue: Chassis
-		BuildPaletteOrder: 0
+		BuildPaletteOrder: 9
 		Prerequisites: weap.tow
 		Description: Big and slow tank, with anti-air.\nCan crush concrete walls.\n  Strong vs Vehicles, Infantry, Aircraft\n  Weak vs Energy Weapons
 	Valued:
 		Cost: 1700
 	Tooltip:
 		Name: Mammoth Chassis
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 78000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 52
+		Locomotor: heavytracked
+	Passenger:
+		Weight: 5
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	AttackTurreted:
+		PauseOnCondition: empdisable || being-warped
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: 4TNK.Husk
+		RequiresCondition: !being-warped
+	Selectable:
+		DecorationBounds: 44,38,0,-4
+	Carryable:
+		LocalOffset: 0,0,500
+	-Crushable:
+	ScriptTags:
+
+chassis.mammoth2:
+	Inherits: ^Tank
+	Inherits@turrets: ^heavy_turrets
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@BERSERK: ^Berserk
+	Inherits: ^chassis_prototype
+	Buildable:
+		Queue: Chassis
+		BuildPaletteOrder: 9
+		Prerequisites: weap.tow
+		Description: Big and slow tank, with anti-air.\nCan crush concrete walls.\n  Strong vs Vehicles, Infantry, Aircraft\n  Weak vs Energy Weapons
+	Valued:
+		Cost: 1700
+	Tooltip:
+		Name: Mammoth Chassis2
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
@@ -293,7 +340,7 @@ chassis.heavy_absorber:
 	Inherits: ^chassis_prototype
 	Buildable:
 		Queue: Chassis
-		BuildPaletteOrder: 225
+		BuildPaletteOrder: 10
 		IconPalette: chrometd
 		Prerequisites: weap.tow
 		Description: Advanced heavy tank that can erase targets from existence.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft, Buildings

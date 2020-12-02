@@ -65,7 +65,6 @@
 	Buildable:
 		Queue: Chassis
 		BuildAtProductionType: Turret
-		BuildPaletteOrder: 0
 		IconPalette: chrome
 		Prerequisites: ~vehicles.any, radar
 		Description: Paradrops a Turret Prototype
@@ -75,6 +74,7 @@
 Crate.light_turret:
 	Inherits: ^turret_crate_prototype
 	Buildable:
+		BuildPaletteOrder: 1
 		Prerequisites: ~vehicles.any, radar
 		Description: Paradrops a Light Turret Prototype.\n Light Turrets can be placed on all chassis.
 	Tooltip:
@@ -109,6 +109,7 @@ Crate.light_turret:
 Crate.medium_turret:
 	Inherits: ^turret_crate_prototype
 	Buildable:
+		BuildPaletteOrder: 2
 		Prerequisites: ~vehicles.any, radar
 		Description: Paradrops a Medium Turret Prototype.\n Medium Turrets can be placed on medium and heavy chassis.
 	Tooltip:
@@ -140,6 +141,7 @@ Crate.medium_turret:
 Crate.heavy_turret:
 	Inherits: ^turret_crate_prototype
 	Buildable:
+		BuildPaletteOrder: 3
 		Prerequisites: ~vehicles.any, radar
 		Description: Paradrops a Heavy Turret Prototype.\n Heavy Turrets can only be placed on heavy chassis.
 	Tooltip:
