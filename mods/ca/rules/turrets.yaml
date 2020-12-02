@@ -196,6 +196,7 @@ Crate.heavy_turret:
 		PassengerConditions:
 
 ^medium_turrets:
+	Inherits: ^light_turrets
 	Turreted:
 		TurnSpeed: 8
 	Inherits: ltnk_turret_mounted
@@ -228,6 +229,7 @@ Crate.heavy_turret:
 		PassengerConditions:
 
 ^heavy_turrets:
+	Inherits: ^medium_turrets
 	Turreted:
 		TurnSpeed: 4
 	Inherits: heavy_double_turret_mounted

@@ -876,6 +876,18 @@ DOME.tow:
 	Exit@1:
 		ExitCell: 0,2
 		ProductionTypes: Turret
+	Exit@2:
+		ExitCell: 1,2
+		ProductionTypes: Turret
+	Exit@3:
+		ExitCell: -1,2
+		ProductionTypes: Turret
+	Exit@4:
+		ExitCell: 2,2
+		ProductionTypes: Turret
+	Exit@4:
+		ExitCell: -2,2
+		ProductionTypes: Turret
 	RallyPoint:
 		Offset: 5,5
 		RequiresCondition: primary
@@ -4319,6 +4331,18 @@ HQ.tow:
 		ReadyAudio: ReinforcementsArrived
 	Exit@1:
 		ExitCell: 0,2
+		ProductionTypes: Turret
+	Exit@2:
+		ExitCell: 1,2
+		ProductionTypes: Turret
+	Exit@3:
+		ExitCell: -1,2
+		ProductionTypes: Turret
+	Exit@4:
+		ExitCell: 2,2
+		ProductionTypes: Turret
+	Exit@4:
+		ExitCell: -2,2
 		ProductionTypes: Turret
 	RallyPoint:
 		Offset: 5,5

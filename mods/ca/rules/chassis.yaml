@@ -286,7 +286,7 @@ chassis.mammoth:
 	ScriptTags:
 
 chassis.mammoth2:
-	Inherits: ^Tank
+	Inherits: ^TankTD
 	Inherits@turrets: ^heavy_turrets
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -294,6 +294,7 @@ chassis.mammoth2:
 	Inherits: ^chassis_prototype
 	Buildable:
 		Queue: Chassis
+		IconPalette: chrometd
 		BuildPaletteOrder: 9
 		Prerequisites: weap.tow
 		Description: Big and slow tank, with anti-air.\nCan crush concrete walls.\n  Strong vs Vehicles, Infantry, Aircraft\n  Weak vs Energy Weapons
@@ -336,6 +337,7 @@ chassis.heavy_absorber:
 	Inherits: ^Tank
 	Inherits@turrets: ^heavy_turrets
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@BERSERK: ^Berserk
 	Inherits: ^chassis_prototype
 	Buildable:
