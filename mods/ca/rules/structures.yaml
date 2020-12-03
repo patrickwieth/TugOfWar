@@ -868,6 +868,8 @@ DOME.tow:
 	Buildable:
 		Prerequisites: proc, ~structures.ra, ~tow
 		Description: Provides an overview\nof the battlefield. Calls in paradrops with Turret Prototpyes. \n  Requires power to operate.
+	ProvidesPrerequisite:
+		Prerequisite: dome
 	ProductionParadrop:
 		Produces: Turret
 		PauseOnCondition: forceshield || invulnerability || being-warped
@@ -1209,7 +1211,7 @@ ATEK:
 		Condition: forceshield
 		Range: 2
 		Duration: 250
-		Prerequisites: forceshield.enabled, techlevel.high
+		Prerequisites: forceshield.enabled
 		Weapon: ForceShield
 		ActivationDelay: 5
 		AirburstAltitude: 0c0
@@ -1983,7 +1985,7 @@ AFLD:
 		CircleSequence: circles
 	ParatroopersPower@paratroopers:
 		OrderName: paratroopers
-		Prerequisites: aircraft.soviet, !aircraft.russia, ~techlevel.low
+		Prerequisites: aircraft.soviet, !aircraft.russia
 		Icon: paratroopers
 		ChargeInterval: 7500
 		Description: Paratroopers
@@ -2005,7 +2007,7 @@ AFLD:
 		DirectionArrowAnimation: paradirection
 	ParatroopersPower@Russianparatroopers:
 		OrderName: stormtroopers
-		Prerequisites: aircraft.russia, ~techlevel.high
+		Prerequisites: aircraft.russia
 		Icon: stormtroopers
 		ChargeInterval: 9000
 		Description: Storm-troopers
@@ -2308,7 +2310,7 @@ STEK:
 		Condition: forceshield
 		Range: 2
 		Duration: 250
-		Prerequisites: forceshield.enabled, techlevel.high
+		Prerequisites: forceshield.enabled
 		Weapon: ForceShield
 		ActivationDelay: 5
 		AirburstAltitude: 0c0
@@ -4212,7 +4214,7 @@ HQ:
 		PauseOnCondition: disabled || being-warped
 	ParatroopersPower@Legionparatroopers:
 		OrderName: LegionParatroopers
-		Prerequisites: structures.legion, hand, techlevel.medium
+		Prerequisites: structures.legion, hand
 		Icon: paratroopers
 		UnitType: c17
 		ChargeInterval: 7500
@@ -4237,7 +4239,7 @@ HQ:
 	DropPodsPower@Zocom:
 		OrderName: droppods
 		Cursor: ability
-		Prerequisites: structures.zocom, techlevel.high
+		Prerequisites: structures.zocom
 		PauseOnCondition: disabled || being-warped
 		Icon: droppods
 		IconPalette: chrometd
@@ -4259,7 +4261,7 @@ HQ:
 		ChargeInterval: 6000
 		Minimum: 500
 		Maximum: 2000
-		Prerequisites: structures.legion, techlevel.high
+		Prerequisites: structures.legion
 		AllowMultiple: false
 		Description: Cash Hack
 		LongDesc: Steal up to $2000 credits from the enemy.\n\nTarget their Refinery to do so.
@@ -4324,6 +4326,8 @@ HQ.tow:
 	Buildable:
 		Prerequisites: proc.td, ~structures.td, ~tow
 		Description: Provides an overview\nof the battlefield. Calls in paradrops with Turret Prototpyes. \n  Requires power to operate.
+	ProvidesPrerequisite:
+		Prerequisite: hq
 	ProductionParadrop:
 		Produces: Turret
 		PauseOnCondition: forceshield || invulnerability || being-warped
@@ -4645,7 +4649,7 @@ HPAD.TD:
 		Proxy: powerproxy.paratroopers2
 	SpawnActorPower@GDIDropzone:
 		Actor: FLARE.dropzone
-		Prerequisites: ~radar.gdi, ~structures.gdi, ~!structures.eagle, ~techlevel.low
+		Prerequisites: ~radar.gdi, ~structures.gdi, ~!structures.eagle
 		LifeTime: 280
 		OrderName: dropzone
 		Icon: orcaca
@@ -4658,7 +4662,7 @@ HPAD.TD:
 		SelectTargetSpeechNotification: SelectTarget
 	SpawnActorPower@GDIEagleDropzone:
 		Actor: FLARE.dropzone
-		Prerequisites: ~radar.gdi, ~structures.eagle, ~techlevel.low
+		Prerequisites: ~radar.gdi, ~structures.eagle
 		LifeTime: 280
 		OrderName: dropzoneeagle
 		Icon: orcaca
@@ -5093,7 +5097,7 @@ GTEK:
 		Condition: forceshield
 		Range: 2
 		Duration: 250
-		Prerequisites: forceshield.enabled, techlevel.high
+		Prerequisites: forceshield.enabled
 		Weapon: ForceShield
 		ActivationDelay: 5
 		AirburstAltitude: 0c0
@@ -5176,7 +5180,7 @@ TMPL:
 		OrderName: clustermissile
 		Icon: clustermissile
 		IconPalette: chrometd
-		Prerequisites: ~structures.nod, techlevel.high, techlevel.superw
+		Prerequisites: ~structures.nod, techlevel.superw
 		Cursor: ability
 		ChargeInterval: 10500
 		Description: Cluster Missile
@@ -5235,7 +5239,7 @@ TMPL:
 		Condition: forceshield
 		Range: 2
 		Duration: 250
-		Prerequisites: forceshield.enabled, techlevel.high
+		Prerequisites: forceshield.enabled
 		Weapon: ForceShield
 		ActivationDelay: 5
 		AirburstAltitude: 0c0
@@ -5254,7 +5258,7 @@ TMPL:
 	GrantExternalConditionPowerCA@Frenzy:
 		OrderName: frenzy
 		Icon: frenzy
-		Prerequisites: structures.marked, techlevel.high
+		Prerequisites: structures.marked
 		ChargeInterval: 4500
 		Weapon: Frenzy
 		Description: Frenzy
@@ -5711,7 +5715,7 @@ GUN.Nod:
 	ActorPreviewPlaceBuildingPreview:
 		OverridePalette: placebuildingtd
 	Buildable:
-		Prerequisites: hand, ~structures.nod, ~techlevel.medium
+		Prerequisites: hand, ~structures.nod
 		IconPalette: chrometd
 	Armament:
 		Weapon: TurretGunTD
@@ -6150,6 +6154,8 @@ INDP:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
+	ProvidesPrerequisite:
+		Prerequisite: hightech
 	ProvidesPrerequisite@buildingname:
 	ProvidesDelayedPrerequisite@indp2:
 		Prerequisite: indp2
@@ -6219,6 +6225,8 @@ OREP:
 		UseDeathTypeSuffix: false
 	Sellable:
 		RequiresCondition: !build-incomplete && !c4 && !being-warped
+	ProvidesPrerequisite:
+		Prerequisite: hightech
 	GrantConditionOnPrerequisite@orep2:
 		Condition: orep2
 		Prerequisites: orep2
@@ -6280,6 +6288,8 @@ MISS.GDI:
 	ProvidesPrerequisite@HMLRS:
 		Factions: gdi, zocom, eagle
 		Prerequisite: hmlrs.buildable
+	ProvidesPrerequisite:
+		Prerequisite: hightech
 	RevealsShroud:
 		Range: 4c0
 		MinRange: 3c0
@@ -6346,6 +6356,8 @@ BIO.Nod:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
+	ProvidesPrerequisite:
+		Prerequisite: hightech
 	ProvidesPrerequisite@Name:
 		RequiresCondition: !being-warped
 	Sellable:

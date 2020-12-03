@@ -662,6 +662,13 @@ microwave_turret:
 		UseClassicFacingFudge: True
 	icon: mwtnkicnh
 
+medium_turret:
+	Inherits: ^VehicleOverlays
+	idle: mwtnkt
+		Facings: 32
+		UseClassicFacingFudge: True
+	icon: mwtnkicnh
+
 chrono_turret:
 	Inherits: ^VehicleOverlays
 	idle: chpr
@@ -669,14 +676,6 @@ chrono_turret:
 		Facings: 32
 		UseClassicFacingFudge: True
 	icon: chpricnh
-
-medium_turret:
-	Inherits: ^VehicleOverlays
-	idle: 2tnk
-		Start: 32
-		Facings: 32
-		UseClassicFacingFudge: True
-	icon: 2tnkicon
 
 mbt_turret:
 	Inherits: ^VehicleOverlays

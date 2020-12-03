@@ -131,7 +131,6 @@ Crate.medium_turret:
 	Inherits: mirage_turret_crate
 	Inherits: prism_turret_crate
 	Inherits: microwave_turret_crate
-	Inherits: medium_turret_crate
 	Inherits: mbt_turret_crate
 	Inherits: mbtpld_turret_crate
 	Inherits: mbtnod_turret_crate
@@ -214,14 +213,13 @@ Crate.heavy_turret:
 	Inherits: mirage_turret_mounted
 	Inherits: prism_turret_mounted
 	Inherits: microwave_turret_mounted
-	Inherits: medium_turret_mounted
 	Inherits: mbt_turret_mounted
 	Inherits: mbtpld_turret_mounted
 	Inherits: mbtnod_turret_mounted
 	Inherits: double_turret_mounted
 	Inherits: atomic_double_turret_mounted
 	Cargo:
-		Types: medium_turret, ammo
+		Types: light_turret, medium_turret, ammo
 		MaxWeight: 8
 		PipCount: 8
 		LoadingCondition: notmobile
@@ -243,7 +241,7 @@ Crate.heavy_turret:
 	Inherits: atomic_heavy_double_turret_mounted
 	Inherits: obelisk_turret_mounted
 	Cargo:
-		Types: heavy_turret, ammo
+		Types: light_turret, medium_turret, heavy_turret, ammo
 		MaxWeight: 8
 		PipCount: 8
 		LoadingCondition: notmobile
@@ -252,6 +250,15 @@ Crate.heavy_turret:
 
 
 ###### Light Turrets ######
+
+medium_turret:
+	Inherits: ^light_turret_prototype
+	Buildable:
+		BuildPaletteOrder: 0
+		Prerequisites: ~infantry.ra, ~techlevel.infonly
+		Description: Turret with Mini Cannon
+	Tooltip:
+		Name: BATF Turret
 
 batf_turret:
 	Inherits: ^light_turret_prototype
@@ -271,6 +278,8 @@ batf_turret_mounted:
 	WithSpriteTurret@batfturret:
 		RequiresCondition: batfturret
 		Sequence: batfturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			batf_turret: batfturret
@@ -341,6 +350,8 @@ recon_turret_mounted:
 		PauseOnCondition: empdisable || being-warped
 		RequiresCondition: reconturret
 		Offset: 0,0,200
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			recon_turret: reconturret
@@ -366,6 +377,8 @@ medic_turret_mounted:
 		PauseOnCondition: empdisable || being-warped
 		RequiresCondition: medicturret
 		Offset: 0,0,40
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	ProximityExternalCondition@medicturret:
 		RequiresCondition: medicturret
 		EnableSound: heal2.aud
@@ -399,6 +412,8 @@ mini_tesla_mounted:
 		Sequence: minitesla
 		PauseOnCondition: empdisable || being-warped
 		RequiresCondition: minitesla
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			mini_tesla: minitesla
@@ -431,6 +446,8 @@ sam_turret_mounted:
 	WithSpriteTurret@samturret:
 		RequiresCondition: samturret
 		Sequence: samturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			sam_turret: samturret
@@ -463,6 +480,8 @@ sam_turret2_mounted:
 	WithSpriteTurret@samturret2:
 		RequiresCondition: samturret2
 		Sequence: samturret2
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			sam_turret2: samturret2
@@ -491,6 +510,8 @@ gun_turret_mounted:
 	WithSpriteTurret@gunturret:
 		RequiresCondition: gunturret
 		Sequence: gunturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			gun_turret: gunturret
@@ -519,6 +540,8 @@ frag_turret_mounted:
 	WithSpriteTurret@fragturret:
 		Sequence: fragturret
 		RequiresCondition: fragturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			frag_turret: fragturret
@@ -549,6 +572,8 @@ flame_turret_mounted:
 	WithSpriteTurret@flameturret:
 		Sequence: flameturret
 		RequiresCondition: flameturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			flame_turret: flameturret
@@ -579,6 +604,8 @@ chem_turret_mounted:
 	WithSpriteTurret@chemturret:
 		Sequence: chemturret
 		RequiresCondition: chemturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			chem_turret: chemturret
@@ -606,6 +633,8 @@ laser_turret_mounted:
 	WithSpriteTurret@laserturret:
 		Sequence: laserturret
 		RequiresCondition: laserturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			laser_turret: laserturret
@@ -633,6 +662,8 @@ desolator_turret_mounted:
 	WithSpriteTurret@desolatorturret:
 		Sequence: desolatorturret
 		RequiresCondition: desolatorturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			desolator_turret: desolatorturret
@@ -661,6 +692,8 @@ commando_turret_mounted:
 	WithSpriteTurret@commandoturret:
 		Sequence: commandoturret
 		RequiresCondition: commandoturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			commando_turret: commandoturret
@@ -705,6 +738,8 @@ repair_turret_mounted:
 		ValidStances: Ally
 		RequiresCondition: repairturret
 	WithSpriteTurret@repairturret:
+		Palette: overlayplayer
+		IsPlayerPalette: true
 		Sequence: repairturret
 		RequiresCondition: repairturret
 	Cargo:
@@ -737,6 +772,8 @@ ship_turret_mounted:
 	WithSpriteTurret@shipturret:
 		RequiresCondition: shipturret
 		Sequence: shipturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			ship_turret: shipturret
@@ -767,6 +804,8 @@ ship_turret2_mounted:
 	WithSpriteTurret@shipturret2:
 		RequiresCondition: shipturret2
 		Sequence: shipturret2
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			ship_turret2: shipturret2
@@ -797,6 +836,8 @@ ship_turret3_mounted:
 	WithSpriteTurret@shipturret3:
 		RequiresCondition: shipturret3
 		Sequence: shipturret3
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			ship_turret3: shipturret3
@@ -825,6 +866,8 @@ jeep_turret_mounted:
 	WithSpriteTurret@jeepturret:
 		RequiresCondition: jeepturret
 		Sequence: jeepturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			jeep_turret: jeepturret
@@ -1035,7 +1078,7 @@ flak_turret_crate:
 
 
 1tnk_turret:
-	Inherits: ^medium_turret_prototype
+	Inherits: ^light_turret_prototype
 	Buildable:
 		BuildPaletteOrder: 0
 		Prerequisites: ~infantry.ra, ~techlevel.infonly
@@ -1054,6 +1097,8 @@ flak_turret_crate:
 	WithSpriteTurret@1tnkturret:
 		Sequence: 1tnkturret
 		RequiresCondition: onetnkturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			1tnk_turret: onetnkturret
@@ -1565,36 +1610,6 @@ microwave_turret_crate:
 	GiveUnitCrateAction@microwave_turret:
 		SelectionShares: 5
 		Units: microwave_turret
-
-
-medium_turret:
-	Inherits: ^medium_turret_prototype
-	Buildable:
-		BuildPaletteOrder: 0
-		Prerequisites: ~infantry.ra, ~techlevel.infonly
-		Description: Turret capable firing shells.
-	Tooltip:
-		Name: Medium Turret
-
-medium_turret_mounted:
-	Armament@mediumturret:                         ## Medium Turret
-		Weapon: 90mm
-		Recoil: 128
-		RecoilRecovery: 38
-		LocalOffset: 720,0,80
-		MuzzleSequence: muzzle
-		RequiresCondition: mediumturret
-	WithSpriteTurret@mediumturret:
-		RequiresCondition: mediumturret
-		Sequence: mediumturret
-	Cargo:
-		PassengerConditions:
-			medium_turret: mediumturret
-
-medium_turret_crate:
-	GiveUnitCrateAction@medium_turret:
-		SelectionShares: 5
-		Units: medium_turret
 
 
 mbt_turret:
