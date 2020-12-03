@@ -1645,8 +1645,8 @@ FACT:
 	SpawnActorsOnSell:
 		ActorTypes: e1,e1,e1,e1,e6
 	CashTrickler:
-		Interval: 125
-		Amount: 100
+		Interval: 100
+		Amount: 150
 		PauseOnCondition: disabled
 
 PROC:

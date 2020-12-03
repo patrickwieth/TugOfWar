@@ -48,7 +48,7 @@ chassis.jeep:
 	Inherits: ^Vehicle
 	Inherits: ^light_chassis_prototype
 	Buildable:
-		BuildPaletteOrder: 5
+		BuildPaletteOrder: 10
 		Description: Fast scout & anti-infantry vehicle.\n  Can detect spies and cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 400
@@ -74,7 +74,7 @@ chassis.humvee:
 	Inherits: ^VehicleTD
 	Inherits: ^light_chassis_prototype
 	Buildable:
-		BuildPaletteOrder: 15
+		BuildPaletteOrder: 11
 		IconPalette: chrometd
 		Description: Fast scout & anti-infantry vehicle.\n  Can detect spies and cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
@@ -105,7 +105,7 @@ chassis.buggy:
 	RenderSprites:
 	Buildable:
 		Queue: Chassis
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 12
 		IconPalette: chrometd
 		Prerequisites: weap.tow
 		Description: Fast scout & anti-infantry vehicle.\n  Can detect spies and cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
@@ -134,7 +134,7 @@ chassis.BTR:
 	Inherits: ^Tank
 	Inherits: ^light_chassis_prototype
 	Buildable:
-		BuildPaletteOrder: 45
+		BuildPaletteOrder: 13
 		Description: Tough infantry transport.\n  Can attack Aircraft.\n  Strong vs Light Armor, Aircraft\n  Weak vs Tanks
 	Valued:
 		Cost: 750
@@ -160,7 +160,7 @@ chassis.Track:
 	Inherits: ^Vehicle
 	Inherits: ^light_chassis_prototype
 	Buildable:
-		BuildPaletteOrder: 130
+		BuildPaletteOrder: 14
 		Description: Mobile unit with mounted Flak cannon.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Tanks
 	Valued:
 		Cost: 600
@@ -188,7 +188,7 @@ chassis.armored_fighting_vehicle:
 	Inherits: ^Tank
 	Inherits: ^light_chassis_prototype
 	Buildable:
-		BuildPaletteOrder: 4
+		BuildPaletteOrder: 15
 		Description: Adaptable infantry transport.\n  Can attack Aircraft.\n  Strong vs Light Armor, Aircraft\n  Weak vs Infantry, Tanks\n  Special Ability: Transform
 	Valued:
 		Cost: 1000
@@ -215,7 +215,7 @@ chassis.light_tank:
 	Inherits: ^light_chassis_prototype
 	RenderSprites:
 	Buildable:
-		BuildPaletteOrder: 7
+		BuildPaletteOrder: 16
 		IconPalette: chrometd
 		Prerequisites: weap.tow
 		Description: Fast, light tank chassis.\n  Can mount light turrets.\n
@@ -262,7 +262,7 @@ chassis.medium_tank:
 	Inherits: ^TankTD
 	Inherits: ^medium_chassis_prototype
 	Buildable:
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 17
 		Description: Allied main battle tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 800
@@ -293,7 +293,7 @@ chassis.main_battle_tank:
 	Inherits: ^TankTD
 	Inherits: ^medium_chassis_prototype
 	Buildable:
-		BuildPaletteOrder: 80
+		BuildPaletteOrder: 18
 		IconPalette: chrometd
 		Description: Main battle tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
@@ -327,9 +327,8 @@ chassis.walker:
 	Inherits: ^heavy_chassis_prototype
 	Buildable:
 		Queue: Chassis
-		BuildPaletteOrder: 8
+		BuildPaletteOrder: 19
 		IconPalette: chrometd
-		Prerequisites: weap.tow
 		Description: Tough combat battle-mech.\n  Can attack Aircraft.\n  Strong vs Infantry, Tanks
 	Valued:
 		Cost: 2000
@@ -364,7 +363,7 @@ chassis.mammoth:
 	Inherits: ^Tank
 	Inherits: ^heavy_chassis_prototype
 	Buildable:
-		BuildPaletteOrder: 9
+		BuildPaletteOrder: 20
 		Description: Big and slow tank, with anti-air.\nCan crush concrete walls.\n  Strong vs Vehicles, Infantry, Aircraft\n  Weak vs Energy Weapons
 	Valued:
 		Cost: 1700
@@ -396,7 +395,7 @@ chassis.mammoth2:
 	Inherits: ^heavy_chassis_prototype
 	Buildable:
 		IconPalette: chrometd
-		BuildPaletteOrder: 9
+		BuildPaletteOrder: 21
 		Description: Big and slow tank, with anti-air.\nCan crush concrete walls.\n  Strong vs Vehicles, Infantry, Aircraft\n  Weak vs Energy Weapons
 	Valued:
 		Cost: 1700
@@ -429,7 +428,7 @@ chassis.heavy_absorber:
 	Inherits: ^Tank
 	Inherits: ^heavy_chassis_prototype
 	Buildable:
-		BuildPaletteOrder: 10
+		BuildPaletteOrder: 22
 		IconPalette: chrometd
 		Description: Advanced heavy tank that can erase targets from existence.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft, Buildings
 	Valued:
