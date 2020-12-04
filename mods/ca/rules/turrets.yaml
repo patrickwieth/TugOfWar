@@ -77,6 +77,8 @@ Crate.light_turret:
 		BuildPaletteOrder: 1
 		Prerequisites: ~vehicles.any, radar
 		Description: Paradrops a Light Turret Prototype.\n Light Turrets can be placed on all chassis.
+	Valued:
+		Cost: 100
 	Tooltip:
 		Name: Light Turret Crate
 		GenericName: Crate
@@ -110,8 +112,10 @@ Crate.medium_turret:
 	Inherits: ^turret_crate_prototype
 	Buildable:
 		BuildPaletteOrder: 2
-		Prerequisites: ~vehicles.any, radar
+		Prerequisites: ~vehicles.any, radar, techcenter
 		Description: Paradrops a Medium Turret Prototype.\n Medium Turrets can be placed on medium and heavy chassis.
+	Valued:
+		Cost: 200
 	Tooltip:
 		Name: Heavy Turret Crate
 		GenericName: Crate
@@ -141,8 +145,10 @@ Crate.heavy_turret:
 	Inherits: ^turret_crate_prototype
 	Buildable:
 		BuildPaletteOrder: 3
-		Prerequisites: ~vehicles.any, radar
+		Prerequisites: ~vehicles.any, radar, hightech
 		Description: Paradrops a Heavy Turret Prototype.\n Heavy Turrets can only be placed on heavy chassis.
+	Valued:
+		Cost: 400
 	Tooltip:
 		Name: Heavy Turret Crate
 		GenericName: Crate
@@ -827,7 +833,7 @@ ship_turret3:
 
 ship_turret3_mounted:
 	Armament@shipturret3:                         ## Ship Turret 3
-		Weapon: 8inch
+		Weapon: 30mm
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 720,0,80
@@ -1193,6 +1199,8 @@ btr_turret_mounted:
 	WithSpriteTurret@btrturret:
 		RequiresCondition: btrturret
 		Sequence: btrturret
+		Palette: overlayplayertd
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			btr_turret: btrturret
@@ -1568,6 +1576,8 @@ prism_turret_mounted:
 	WithSpriteTurret@prismturret:
 		RequiresCondition: prismturret
 		Sequence: prismturret
+		Palette: overlayplayertd
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			prism_turret: prismturret
@@ -1773,6 +1783,8 @@ atomic_double_turret_mounted:
 	WithSpriteTurret@atomicdoubleturret:
 		RequiresCondition: atomicdoubleturret
 		Sequence: atomicdoubleturret
+		Palette: overlayplayertd
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			atomic_double_turret: atomicdoubleturret
@@ -2065,6 +2077,8 @@ akatsiya_turret_mounted:
 	WithSpriteTurret@akatsiyaturret:
 		RequiresCondition: akatsiyaturret
 		Sequence: akatsiyaturret
+		Palette: overlayplayertd
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			akatsiya_turret: akatsiyaturret
@@ -2103,6 +2117,8 @@ atomic_heavy_double_turret_mounted:
 	WithSpriteTurret@atomicheavydoubleturret:
 		RequiresCondition: atomicheavydoubleturret
 		Sequence: atomicheavydoubleturret
+		Palette: overlayplayertd
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			atomic_heavy_double_turret: atomicheavydoubleturret
@@ -2124,12 +2140,14 @@ obelisk_turret:
 
 obelisk_turret_mounted:
 	Armament@obeliskturret:                      ## Obelisk Turret
-		Weapon: Laser
+		Weapon: Laser.Heavy
 		LocalOffset: 500,0,500
 		RequiresCondition: obeliskturret
 	WithSpriteTurret@obeliskturret:
 		RequiresCondition: obeliskturret
 		Sequence: obeliskturret
+		Palette: overlayplayertd
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			obelisk_turret: obeliskturret
