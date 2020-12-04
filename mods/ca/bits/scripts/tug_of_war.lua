@@ -19,7 +19,9 @@ WorldLoadedToW = function()
 	teamB = {}
 
 	for i,player in next,players do
-		Media.DisplayMessage(tostring(player))
+		Media.DisplayMessage(tostring(player.GetActorsByType("AMCV")))
+		Media.DisplayMessage(tostring(player.GetActorsByType("MCV")))
+
 		if player.IsAlliedWith(mp0) then
 			teamA[#teamA+1] = player
 		else
@@ -34,8 +36,16 @@ WorldLoadedToW = function()
 	elseif (#teamA < #teamB) then
 		teamApower = #teamB / #teamA
 	end
-	Media.DisplayMessage("Team A has " .. tostring(#teamA) .. " members and Team B has " .. tostring(#teamB) .. " members.")
-	Media.DisplayMessage("TeamApower: " .. tostring(teamApower) .. " TeamBpower: " .. tostring(teamBpower))
+
+	Media.DisplayMessage("Team A has " .. tostring(#teamA) .. " members and power of " .. tostring(teamApower) .. ", players:")
+	for i,player in next,teamA do
+		Media.DisplayMessage(tostring(player))
+	end
+
+	Media.DisplayMessage("Team B has " .. tostring(#teamB) .. " members and power of " .. tostring(teamBpower) .. ", players:")
+	for i,player in next,teamB do
+		Media.DisplayMessage(tostring(player))
+	end
 
 end
 
