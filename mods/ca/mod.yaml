@@ -191,11 +191,9 @@ Hotkeys:
 	common|hotkeys/viewport.yaml
 	ca|hotkeys.yaml
 
-LoadScreen: LogoStripeLoadScreen
-	Image: ca|uibits/loadscreen.png
-	Image2x: ca|uibits/loadscreen-2x.png
-	Image3x: ca|uibits/loadscreen-3x.png
-	Text: Loading...
+LoadScreen: FitImageLoadScreen
+	Image: ca|uibits/loadscreen1.png,ca|uibits/loadscreen2.png,ca|uibits/loadscreen3.png,ca|uibits/loadscreen4.png,ca|uibits/loadscreen5.png
+	Text: Loading..., Mining Bitcoin..., Installing Malware..., Encrypting HDD..., Downloading Credit Card Data...
 
 ServerTraits:
 	LobbyCommands

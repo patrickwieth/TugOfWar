@@ -14,39 +14,6 @@ WorldLoadedToW = function()
 	mp11 = Player.GetPlayer("Multi11")
 
 	players = { mp0, mp1, mp2, mp3, mp4, mp5, mp6, mp7, mp8, mp9, mp10, mp11 }
-
-	teamA = {}
-	teamB = {}
-
-	for i,player in next,players do
-		Media.DisplayMessage(tostring(player.GetActorsByType("AMCV")))
-		Media.DisplayMessage(tostring(player.GetActorsByType("MCV")))
-
-		if player.IsAlliedWith(mp0) then
-			teamA[#teamA+1] = player
-		else
-			teamB[#teamB+1] = player
-		end
-	end
-
-	teamApower = 1
-	teamBpower = 1
-	if (#teamA > #teamB) then
-		teamBpower = #teamA / #teamB
-	elseif (#teamA < #teamB) then
-		teamApower = #teamB / #teamA
-	end
-
-	Media.DisplayMessage("Team A has " .. tostring(#teamA) .. " members and power of " .. tostring(teamApower) .. ", players:")
-	for i,player in next,teamA do
-		Media.DisplayMessage(tostring(player))
-	end
-
-	Media.DisplayMessage("Team B has " .. tostring(#teamB) .. " members and power of " .. tostring(teamBpower) .. ", players:")
-	for i,player in next,teamB do
-		Media.DisplayMessage(tostring(player))
-	end
-
 end
 
 autoproduced = {}
@@ -61,54 +28,113 @@ warpointb1 = Map.NamedActor("warpointb1")
 warpointb2 = Map.NamedActor("warpointb2")
 warpointb3 = Map.NamedActor("warpointb3")
 
+-- here are the checks which warpoints are present
 if (warpointa3 ~= nil) then
-	insertIndex = 1
 	if (warpointb3  == nil) then
 		Media.DisplayMessage("warpointa3 exists but warpointb3 does not, this is not a good idea...")
+		return
 	end
 	if (warpointa2 == nil or warpointb2 == nil or warpointa1 == nil or warpointb1 == nil or warpoint0 == nil) then
 		Media.DisplayMessage("if you use warpointa3 you also need all other warpoints a1,a2,b1,b2 and 0.")
+		return
 	end
+	insertIndex = 1
+	startpointa = warpointa3
+	startpointb = warpointb3
 elseif ( warpointa2 ~= nil ) then
-	insertIndex = 3
 	if (warpointb2  == nil) then
 		Media.DisplayMessage("warpointa2 exists but warpointb2 does not, this is not a good idea...")
+		return
 	end
 	if (warpointa1 == nil or warpointb1 == nil or warpoint0 == nil) then
 		Media.DisplayMessage("if you use warpointa2 you also need the lower warpoints a1,b1 and 0.")
+		return
 	end
+	insertIndex = 3
+	startpointa = warpointa2
+	startpointb = warpointb2
 else
 	if (warpointa1 == nil or warpointb1 == nil or warpoint0 == nil) then
 		Media.DisplayMessage("you need at least the warpoints a1,b1 and 0.")
+		return
 	end
 	insertIndex = 5
+	startpointa = warpointa1
+	startpointb = warpointb1
 end
 
 
+
 TickTugOfWar = function()
-  if DateTime.GameTime % 50 > 0
-  then
+	if DateTime.GameTime == 1 then
+		-- game setup, this only happens at the start, first define teams
+		teamA = {}
+		teamB = {}
+
+		for i,player in next,players do
+			if player.IsAlliedWith(mp0) then
+				teamA[#teamA+1] = player
+			else
+				teamB[#teamB+1] = player
+			end
+		end
+
+		-- calculate team power to give buffs to teams with fewer players
+		teamApower = 1
+		teamBpower = 1
+		if (#teamA > #teamB) then
+			teamBpower = #teamA / #teamB
+		elseif (#teamA < #teamB) then
+			teamApower = #teamB / #teamA
+		end
+
+		Media.DisplayMessage("Team A has " .. tostring(#teamA) .. " members and power of " .. tostring(teamApower) .. ", players:")
+		for i,player in next,teamA do
+			Media.DisplayMessage(tostring(player))
+		end
+
+		Media.DisplayMessage("Team B has " .. tostring(#teamB) .. " members and power of " .. tostring(teamBpower) .. ", players:")
+		for i,player in next,teamB do
+			Media.DisplayMessage(tostring(player))
+		end
+
+		-- then find out which team is closer to which spawning points
+		function sqdistance(a, b)
+			return math.pow(a.Location.X - b.Location.X, 2) + math.pow(a.Location.Y - b.Location.Y, 2)
+		end
+
+		--for i,player in next,players do
+			mcv = teamA[1].GetActorsByTypes({"mcv", "amcv"})[1]
+
+			--Media.DisplayMessage("Distance to A:", tostring(sqdistance(mcv, startpointa)))
+			--Media.DisplayMessage("Distance to B:", tostring(sqdistance(mcv, startpointb)))
+
+			if sqdistance(mcv, startpointa) < sqdistance(mcv, startpointb) then
+				Media.DisplayMessage("Switching sides of teams")
+				tempTeam = teamA
+				teamA = teamB
+				teamB = tempTeam
+			end
+
+	elseif DateTime.GameTime % 1000 > 0 then
+		-- we only do special tick things every 1000 Ticks, any tick else is skipped
     return
   end
 
 	--Media.DisplayMessage(tostring(DateTime.GameTime))
 
-	if DateTime.GameTime % 500 == 0
-	then
-		--Media.DisplayMessage(tostring(#autoproduced))
-		TransferUnitGroups()
-		AttackMoveUnits()
-	end
+	TransferUnitGroups()
+	AttackMoveUnits()
 end
 
 
 AttackMoveUnitsFromTable = function (unittable, Location)
-	for i,unit in next,unittable do
+	--for i,unit in next,unittable do
   	--Media.DisplayMessage(tostring(key) .. " of " .. tostring(#autoproduced) .. " is " .. tostring(value.Type))
-	end
-	for i=1,#unittable do
+	--end
+	--for i=1,#unittable do
 		--Media.DisplayMessage(tostring(i) .. " of " .. tostring(#unittable) .. " is " .. tostring(unittable[i].Type))
-	end
+	--end
 
 	for i=1,#unittable do
 		--Media.DisplayMessage(tostring(i) .. " of " .. tostring(#autoproduced))
@@ -196,14 +222,18 @@ Trigger.OnAnyProduction(
   function(producer, produced, productionType)
     if producer.Type == 'weap.auto'
     then
-			if producer.Owner.IsAlliedWith(mp0) and teamApower == 1.5 then
-				Media.DisplayMessage("buff1")
+			if producer.Owner.IsAlliedWith(teamA[1]) and teamApower == 1.5 then
+				Media.DisplayMessage("buffA1")
 				producer.GrantCondition("TeamBalance1")
-			elseif producer.Owner.IsAlliedWith(mp0) and teamApower == 2 then
-				Media.DisplayMessage("buff2")
+			elseif producer.Owner.IsAlliedWith(teamA[1]) and teamApower == 2 then
+				Media.DisplayMessage("buffA2")
 				producer.GrantCondition("TeamBalance2")
-			elseif not producer.Owner.IsAlliedWith(mp0) and teamBpower > 1 then
-				Media.DisplayMessage("wtf is this")
+			elseif not producer.Owner.IsAlliedWith(teamA[1]) and teamBpower == 1.5 then
+				Media.DisplayMessage("buffB1")
+				producer.GrantCondition("TeamBalance1")
+			elseif not producer.Owner.IsAlliedWith(teamA[1]) and teamBpower == 2 then
+				Media.DisplayMessage("buffB2")
+				producer.GrantCondition("TeamBalance2")
 			end
 
 			autoproduced[#autoproduced+1] = produced

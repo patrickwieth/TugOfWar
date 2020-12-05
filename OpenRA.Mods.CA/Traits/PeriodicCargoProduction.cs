@@ -158,7 +158,7 @@ namespace OpenRA.Mods.CA.Traits
 					fireDelay = Util.ApplyPercentageModifiers(weapon.ReloadDelay, modifiers);
 					burst = weapon.Burst;
 
-					fireDelay *= summedCost / 200;				// Here is the factor which determines how fast units are spawned, higher = faster
+					fireDelay *= summedCost / 100;				// Here is the factor which determines how fast units are spawned, higher = faster
 					//Game.Debug(String.Join("; ", fireDelay ));
 
 					if (weapon.AfterFireSound != null && weapon.AfterFireSound.Any())
