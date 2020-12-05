@@ -852,6 +852,7 @@
 		Condition: global-bounty
 		Prerequisites: global-bounty
 	GivesBounty:
+		Percentage: 1
 		RequiresCondition: global-bounty
 
 ^ProductionEfficiencyBoost:

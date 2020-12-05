@@ -1445,6 +1445,7 @@ WEAP.tow:
 WEAP.auto:
 	Inherits: ^Building
 	Inherits@shape: ^3x3Shape
+	Inherits@IDISABLE: ^DisableOnLowPowerOrForceDisabled
 	Selectable:
 		Bounds: 72,72
 	Buildable:
@@ -1491,6 +1492,7 @@ WEAP.auto:
 		LoadingCondition: notmobile
 	PeriodicCargoProduction:
 		Weapon: ProducePassengers
+		RequiresCondition: !lowpower
 		InitialDelay: 0
 	ProductionCA:
 		Produces: Vehicle
