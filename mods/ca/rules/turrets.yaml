@@ -101,10 +101,10 @@ Crate.light_turret:
 	Inherits: ship_turret_crate
 	Inherits: ship_turret2_crate
 	Inherits: ship_turret3_crate
-	Inherits: jeep_turret_crate
-	Inherits: humvee_turret_crate
+	#Inherits: jeep_turret_crate
+	#Inherits: humvee_turret_crate
 	Inherits: vulcan_turret_crate
-	Inherits: buggy_turret_crate
+	#Inherits: buggy_turret_crate
 	Inherits: flak_turret_crate
 	Inherits: 1tnk_turret_crate
 

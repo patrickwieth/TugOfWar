@@ -1445,7 +1445,7 @@ WEAP.tow:
 WEAP.auto:
 	Inherits: ^Building
 	Inherits@shape: ^3x3Shape
-	Inherits@IDISABLE: ^DisableOnLowPowerOrForceDisabled
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Selectable:
 		Bounds: 72,72
 	Buildable:

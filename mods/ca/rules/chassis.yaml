@@ -69,6 +69,8 @@ chassis.jeep:
 		Range: 4c0
 	Turreted:
 		Offset: -85,0,128
+	Cargo:
+		InitialUnits: jeep_turret
 
 chassis.humvee:
 	Inherits: ^VehicleTD
@@ -98,6 +100,8 @@ chassis.humvee:
 		Range: 8c0
 	Turreted:
 		Offset: -85,0,128
+	Cargo:
+		InitialUnits: humvee_turret
 
 chassis.buggy:
 	Inherits: ^VehicleTD
@@ -129,6 +133,8 @@ chassis.buggy:
 		Offset: -43,0,128
 	AttackTurreted:
 		PauseOnCondition: empdisable || being-warped
+	Cargo:
+		InitialUnits: buggy_turret
 
 chassis.BTR:
 	Inherits: ^Tank

@@ -103,26 +103,25 @@ TickTugOfWar = function()
 			return math.pow(a.Location.X - b.Location.X, 2) + math.pow(a.Location.Y - b.Location.Y, 2)
 		end
 
-		--for i,player in next,players do
-			mcv = teamA[1].GetActorsByTypes({"mcv", "amcv"})[1]
+		mcv = teamA[1].GetActorsByTypes({"mcv", "amcv", "smcv"})[1]
 
-			--Media.DisplayMessage("Distance to A:", tostring(sqdistance(mcv, startpointa)))
-			--Media.DisplayMessage("Distance to B:", tostring(sqdistance(mcv, startpointb)))
+		--Media.DisplayMessage("Distance to A:", tostring(sqdistance(mcv, startpointa)))
+		--Media.DisplayMessage("Distance to B:", tostring(sqdistance(mcv, startpointb)))
 
-			if sqdistance(mcv, startpointa) < sqdistance(mcv, startpointb) then
-				Media.DisplayMessage("Switching sides of teams")
-				tempTeam = teamA
-				teamA = teamB
-				teamB = tempTeam
-			end
+		if sqdistance(mcv, startpointa) < sqdistance(mcv, startpointb) then
+			Media.DisplayMessage("Switching sides of teams")
+			tempTeam = teamA
+			teamA = teamB
+			teamB = tempTeam
+		end
 
 	elseif DateTime.GameTime % 1000 > 0 then
 		-- we only do special tick things every 1000 Ticks, any tick else is skipped
-    return
+    	return
   end
 
 	--Media.DisplayMessage(tostring(DateTime.GameTime))
-
+	-- these are the actions that are done every 1000 ticks
 	TransferUnitGroups()
 	AttackMoveUnits()
 end
@@ -156,6 +155,14 @@ AttackMoveUnits = function()
 		AttackMoveUnitsFromTable(teamAunits[6], warpointb2.Location)
 		AttackMoveUnitsFromTable(teamAunits[7], warpointb3.Location)
 
+		AttackMoveUnitsFromTable(teamBunits[1], warpointb3.Location)
+		AttackMoveUnitsFromTable(teamBunits[2], warpointb2.Location)
+		AttackMoveUnitsFromTable(teamBunits[3], warpointb1.Location)
+		AttackMoveUnitsFromTable(teamBunits[4], warpoint0.Location)
+		AttackMoveUnitsFromTable(teamBunits[5], warpointa1.Location)
+		AttackMoveUnitsFromTable(teamBunits[6], warpointa2.Location)
+		AttackMoveUnitsFromTable(teamBunits[7], warpointa3.Location)
+
 	elseif ( warpointa2 ~= nil ) then
 		AttackMoveUnitsFromTable(teamAunits[3], warpointa2.Location)
 		AttackMoveUnitsFromTable(teamAunits[4], warpointa1.Location)
@@ -163,10 +170,19 @@ AttackMoveUnits = function()
 		AttackMoveUnitsFromTable(teamAunits[6], warpointb1.Location)
 		AttackMoveUnitsFromTable(teamAunits[7], warpointb2.Location)
 
+		AttackMoveUnitsFromTable(teamBunits[3], warpointb2.Location)
+		AttackMoveUnitsFromTable(teamBunits[4], warpointb1.Location)
+		AttackMoveUnitsFromTable(teamBunits[5], warpoint0.Location)
+		AttackMoveUnitsFromTable(teamBunits[6], warpointa1.Location)
+		AttackMoveUnitsFromTable(teamBunits[7], warpointa2.Location)
 	else
 		AttackMoveUnitsFromTable(teamAunits[5], warpointa1.Location)
 		AttackMoveUnitsFromTable(teamAunits[6], warpoint0.Location)
 		AttackMoveUnitsFromTable(teamAunits[7], warpointb1.Location)
+
+		AttackMoveUnitsFromTable(teamBunits[5], warpointb1.Location)
+		AttackMoveUnitsFromTable(teamBunits[6], warpoint0.Location)
+		AttackMoveUnitsFromTable(teamBunits[7], warpointb2.Location)
 	end
 end
 
@@ -205,12 +221,10 @@ TransferUnitGroups = function()
 			--Media.DisplayMessage(tostring(i) .. " in team " .. tostring( autoproduced[i].Owner.Team ))
 			table.insert(teamAunits[insertIndex], autoproduced[i])
 			--table.remove(autoproduced, i)
-
 		else
 			--Media.DisplayMessage(tostring(i) .. " in yes" .. tostring( autoproduced[i].Owner.Team ))
 			table.insert(teamBunits[insertIndex], autoproduced[i])
 			--table.remove(autoproduced, i)
-
 		end
 
 	end
