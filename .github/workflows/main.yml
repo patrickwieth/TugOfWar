@@ -46,8 +46,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build/CombinedArms-${{ steps.branch_name.outputs.SOURCE_TAG }}-x86_64.AppImage
-        asset_name: CombinedArms-${{ steps.branch_name.outputs.SOURCE_TAG }}-x86_64.AppImage
+        asset_path: ./build/TugOfWar-${{ steps.branch_name.outputs.SOURCE_TAG }}-x86_64.AppImage
+        asset_name: TugOfWar-${{ steps.branch_name.outputs.SOURCE_TAG }}-x86_64.AppImage
         asset_content_type: application/octet-stream
 
     - name: Upload Release Asset (Windows Portable)
@@ -57,8 +57,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build/CombinedArms-${{ steps.branch_name.outputs.SOURCE_TAG }}-x64-winportable.zip
-        asset_name: CombinedArms-${{ steps.branch_name.outputs.SOURCE_TAG }}-x64-winportable.zip
+        asset_path: ./build/TugOfWar-${{ steps.branch_name.outputs.SOURCE_TAG }}-x64-winportable.zip
+        asset_name: TugOfWar-${{ steps.branch_name.outputs.SOURCE_TAG }}-x64-winportable.zip
         asset_content_type: application/zip
 
     - name: Upload Release Asset (Windows Setup)
@@ -68,7 +68,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build/CombinedArms-${{ steps.branch_name.outputs.SOURCE_TAG }}-x64.exe
-        asset_name: CombinedArms-${{ steps.branch_name.outputs.SOURCE_TAG }}-x64.exe
+        asset_path: ./build/TugOfWar-${{ steps.branch_name.outputs.SOURCE_TAG }}-x64.exe
+        asset_name: TugOfWar-${{ steps.branch_name.outputs.SOURCE_TAG }}-x64.exe
         asset_content_type: application/octet-stream
 
