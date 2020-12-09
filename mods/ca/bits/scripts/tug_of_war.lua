@@ -237,16 +237,16 @@ Trigger.OnAnyProduction(
     if producer.Type == 'weap.auto'
     then
 			if producer.Owner.IsAlliedWith(teamA[1]) and teamApower == 1.5 then
-				Media.DisplayMessage("buffA1")
+				--Media.DisplayMessage("buffA1")
 				producer.GrantCondition("TeamBalance1")
 			elseif producer.Owner.IsAlliedWith(teamA[1]) and teamApower == 2 then
-				Media.DisplayMessage("buffA2")
+				--Media.DisplayMessage("buffA2")
 				producer.GrantCondition("TeamBalance2")
 			elseif not producer.Owner.IsAlliedWith(teamA[1]) and teamBpower == 1.5 then
-				Media.DisplayMessage("buffB1")
+				--Media.DisplayMessage("buffB1")
 				producer.GrantCondition("TeamBalance1")
 			elseif not producer.Owner.IsAlliedWith(teamA[1]) and teamBpower == 2 then
-				Media.DisplayMessage("buffB2")
+				--Media.DisplayMessage("buffB2")
 				producer.GrantCondition("TeamBalance2")
 			end
 

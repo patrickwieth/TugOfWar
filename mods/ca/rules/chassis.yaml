@@ -27,19 +27,19 @@
 	Inherits@1: ^chassis_prototype
 	Inherits@2: ^light_turrets
 	Buildable:
-		Prerequisites: weap.tow
+		Prerequisites: vehicles.any
 
 ^medium_chassis_prototype:
 	Inherits@1: ^chassis_prototype
 	Inherits@3: ^medium_turrets
 	Buildable:
-		Prerequisites: weap.tow, techcenter
+		Prerequisites: vehicles.any, techcenter
 
 ^heavy_chassis_prototype:
 	Inherits: ^chassis_prototype
 	Inherits: ^heavy_turrets
 	Buildable:
-		Prerequisites: weap.tow, hightech
+		Prerequisites: vehicles.any, hightech
 
 
 ########## Light Chassis ##########
@@ -108,10 +108,8 @@ chassis.buggy:
 	Inherits: ^light_chassis_prototype
 	RenderSprites:
 	Buildable:
-		Queue: Chassis
 		BuildPaletteOrder: 12
 		IconPalette: chrometd
-		Prerequisites: weap.tow
 		Description: Fast scout & anti-infantry vehicle.\n  Can detect spies and cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 350
@@ -223,7 +221,6 @@ chassis.light_tank:
 	Buildable:
 		BuildPaletteOrder: 16
 		IconPalette: chrometd
-		Prerequisites: weap.tow
 		Description: Fast, light tank chassis.\n  Can mount light turrets.\n
 	Valued:
 		Cost: 625
@@ -332,7 +329,6 @@ chassis.walker:
 	Inherits: ^Tank
 	Inherits: ^heavy_chassis_prototype
 	Buildable:
-		Queue: Chassis
 		BuildPaletteOrder: 19
 		IconPalette: chrometd
 		Description: Tough combat battle-mech.\n  Can attack Aircraft.\n  Strong vs Infantry, Tanks

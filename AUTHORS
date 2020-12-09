@@ -7,10 +7,17 @@ modding project, to a small, but passionate community.
 However It wouldn't be what it is today without the help of the
 talented wider OpenRA community.
 
+TugOfWar uses the custom c# code from Combined Arms,
+which extends the original OpenRA engine. The code
+is very well structured and allows us to implement
+many desirable features. We are very thankful for 
+this codebase and highly recommend everyone to have
+a look at this great mod.
+
 Combined Arms developers:
 	* Inq (Project lead)
 	* Darkademic (Art & Balanace)
-	
+
 Contributors & special thanks to:
 	* GraionDilach (C#)
 	* MustaphaTR (C#)

@@ -286,6 +286,7 @@ batf_turret_mounted:
 		Sequence: batfturret
 		Palette: overlayplayer
 		IsPlayerPalette: true
+		Offset: 0,0,-40
 	Cargo:
 		PassengerConditions:
 			batf_turret: batfturret
@@ -1303,7 +1304,9 @@ tesla_dome_mounted:
 		Sequence: tesladome
 		PauseOnCondition: empdisable || being-warped
 		RequiresCondition: tesladome
-		Offset: 0,0,100
+		Palette: overlayplayertd
+		IsPlayerPalette: true
+		Offset: 0,0,80
 	Cargo:
 		PassengerConditions:
 			tesla_dome: tesladome
@@ -1348,16 +1351,19 @@ ssm_turret_mounted:
 		Sequence: ssmturretfull
 		Palette: overlayplayertd
 		IsPlayerPalette: true
+		Offset: 0,0,-40
 	WithSpriteTurret@@ssmturret2:
 		RequiresCondition: attacked2 && ssmturret
 		Sequence: ssmturrethalf
 		Palette: overlayplayertd
 		IsPlayerPalette: true
+		Offset: 0,0,-40
 	WithSpriteTurret@@ssmturret3:
 		RequiresCondition: attacked1 && ssmturret
 		Sequence: ssmturretempty
 		Palette: overlayplayertd
 		IsPlayerPalette: true
+		Offset: 0,0,-40
 	Cargo:
 		PassengerConditions:
 			ssm_turret: ssmturret
@@ -1753,6 +1759,8 @@ double_turret_mounted:
 	WithSpriteTurret@doubleturret:
 		RequiresCondition: doubleturret
 		Sequence: doubleturret
+		Palette: overlayplayertd
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			double_turret: doubleturret
@@ -2042,9 +2050,11 @@ chrono_turret_mounted:
 	WithSpriteTurret@chronoturret:
 		RequiresCondition: chronoturret
 		Sequence: chronoturret
+		Offset: 0,0,-20
 	WithSpriteTurret@chronoturretactive:
 		RequiresCondition: chronoturretactive
 		Sequence: chronoturretactive
+		Offset: 0,0,-20
 	Cargo:
 		PassengerConditions:
 			chrono_turret: chronoturret
@@ -2079,6 +2089,7 @@ akatsiya_turret_mounted:
 		Sequence: akatsiyaturret
 		Palette: overlayplayertd
 		IsPlayerPalette: true
+		Offset: 0,0,-20
 	Cargo:
 		PassengerConditions:
 			akatsiya_turret: akatsiyaturret
