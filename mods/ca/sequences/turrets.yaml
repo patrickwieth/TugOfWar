@@ -234,17 +234,17 @@ crate.heavy_turret:
 	mbtturret: mtnk
 		Start: 32
 		Facings: 32
-		Offset: 0,-4
+		Offset: 0,-5
 		UseClassicFacingFudge: True
 	mbtpldturret: mtnk
 		Start: 64
 		Facings: 32
-		Offset: 0,-4
+		Offset: 0,-5
 		UseClassicFacingFudge: True
 	mbtnodturret: mtnknod
 		Start: 32
 		Facings: 32
-		Offset: 0,-4
+		Offset: 0,-5
 		UseClassicFacingFudge: True
 
 ^heavy_turrets:

@@ -184,7 +184,7 @@ chassis.Track:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Turreted:
-		Offset: -298,0,298
+		Offset: -298,0,0
 	Selectable:
 		DecorationBounds: 28,28
 
@@ -285,7 +285,7 @@ chassis.medium_tank:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Turreted:
-		Offset: 0,0,20
+		Offset: 0,0,-200
 	SpawnActorOnDeath:
 		Actor: 2TNK.Husk
 		RequiresCondition: !being-warped
@@ -316,6 +316,8 @@ chassis.main_battle_tank:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
+	Turreted:
+		Offset: 0,0,-200
 	SpawnActorOnDeath:
 		Actor: MTNK.Husk
 		RequiresCondition: !being-warped

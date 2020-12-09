@@ -286,7 +286,7 @@ batf_turret_mounted:
 		Sequence: batfturret
 		Palette: overlayplayer
 		IsPlayerPalette: true
-		Offset: 0,0,-40
+		Offset: 0,0,-400
 	Cargo:
 		PassengerConditions:
 			batf_turret: batfturret
@@ -1074,6 +1074,8 @@ flak_turret_mounted:
 	WithSpriteTurret@flakturret:
 		RequiresCondition: flakturret
 		Sequence: flakturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			flak_turret: flakturret
@@ -1173,6 +1175,8 @@ sherman_turret_mounted:
 	WithSpriteTurret@shermanturret:
 		RequiresCondition: shermanturret
 		Sequence: shermanturret
+		Palette: overlayplayertd
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			sherman_turret: shermanturret
@@ -1200,7 +1204,7 @@ btr_turret_mounted:
 	WithSpriteTurret@btrturret:
 		RequiresCondition: btrturret
 		Sequence: btrturret
-		Palette: overlayplayertd
+		Palette: overlayplayer
 		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
@@ -1304,7 +1308,7 @@ tesla_dome_mounted:
 		Sequence: tesladome
 		PauseOnCondition: empdisable || being-warped
 		RequiresCondition: tesladome
-		Palette: overlayplayertd
+		Palette: overlayplayer
 		IsPlayerPalette: true
 		Offset: 0,0,80
 	Cargo:
@@ -1424,6 +1428,8 @@ arty_turret_mounted:
 	WithSpriteTurret@artyturret:
 		RequiresCondition: artyturret
 		Sequence: artyturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			arty_turret: artyturret
@@ -1525,6 +1531,8 @@ tankd_turret_mounted:
 	WithSpriteTurret@tankdturret:
 		RequiresCondition: tankdturret
 		Sequence: tankdturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			tankd_turret: tankdturret
@@ -1555,6 +1563,8 @@ mirage_turret_mounted:
 	WithSpriteTurret@mirageturret:
 		RequiresCondition: mirageturret
 		Sequence: mirageturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
 			mirage_turret: mirageturret
@@ -1582,7 +1592,7 @@ prism_turret_mounted:
 	WithSpriteTurret@prismturret:
 		RequiresCondition: prismturret
 		Sequence: prismturret
-		Palette: overlayplayertd
+		Palette: overlayplayer
 		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
@@ -1759,7 +1769,7 @@ double_turret_mounted:
 	WithSpriteTurret@doubleturret:
 		RequiresCondition: doubleturret
 		Sequence: doubleturret
-		Palette: overlayplayertd
+		Palette: overlayplayer
 		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
@@ -1791,7 +1801,7 @@ atomic_double_turret_mounted:
 	WithSpriteTurret@atomicdoubleturret:
 		RequiresCondition: atomicdoubleturret
 		Sequence: atomicdoubleturret
-		Palette: overlayplayertd
+		Palette: overlayplayer
 		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
@@ -2048,17 +2058,22 @@ chrono_turret_mounted:
 		LocalOffset: 600,0,480
 		RequiresCondition: chronoturret
 	WithSpriteTurret@chronoturret:
-		RequiresCondition: chronoturret
+		RequiresCondition: chronoturret && !aiming
 		Sequence: chronoturret
+		Palette: overlayplayer
+		IsPlayerPalette: true
 		Offset: 0,0,-20
+	GrantConditionWhileAiming:
+		Condition: aiming
 	WithSpriteTurret@chronoturretactive:
-		RequiresCondition: chronoturretactive
+		RequiresCondition: chronoturret && aiming
 		Sequence: chronoturretactive
+		Palette: overlayplayer
+		IsPlayerPalette: true
 		Offset: 0,0,-20
 	Cargo:
 		PassengerConditions:
 			chrono_turret: chronoturret
-			chronoturretactive: chronoturretactive ## this is special glow
 
 chrono_turret_crate:
 	GiveUnitCrateAction@chrono_turret:
@@ -2087,7 +2102,7 @@ akatsiya_turret_mounted:
 	WithSpriteTurret@akatsiyaturret:
 		RequiresCondition: akatsiyaturret
 		Sequence: akatsiyaturret
-		Palette: overlayplayertd
+		Palette: overlayplayer
 		IsPlayerPalette: true
 		Offset: 0,0,-20
 	Cargo:
@@ -2128,7 +2143,7 @@ atomic_heavy_double_turret_mounted:
 	WithSpriteTurret@atomicheavydoubleturret:
 		RequiresCondition: atomicheavydoubleturret
 		Sequence: atomicheavydoubleturret
-		Palette: overlayplayertd
+		Palette: overlayplayer
 		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
@@ -2157,7 +2172,7 @@ obelisk_turret_mounted:
 	WithSpriteTurret@obeliskturret:
 		RequiresCondition: obeliskturret
 		Sequence: obeliskturret
-		Palette: overlayplayertd
+		Palette: overlayplayer
 		IsPlayerPalette: true
 	Cargo:
 		PassengerConditions:
