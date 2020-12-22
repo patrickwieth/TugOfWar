@@ -9,7 +9,7 @@ Get the [Releases](https://github.com/patrickwieth/TugOfWar/releases/latest):
 
 ## How to build:
 * Run make or make.cmd
-* Start via ```sh.launch-game.sh``` or launch-game.cmd
+* Start via ```sh launch-game.sh``` or launch-game.cmd
 * Dependencies are the same as original OpenRA: [INSTALL.md](https://github.com/OpenRA/OpenRA/blob/bleed/INSTALL.md)
 
 ## How to find players:
