@@ -58,7 +58,7 @@ jobs:
         if-no-files-found: error
 
   prepare-release:
-    needs: [build-linux]
+    needs: [build-linux, version]
     runs-on: ubuntu-18.04
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
@@ -75,7 +75,7 @@ jobs:
         prerelease: false
 
   release-linux-build:
-    needs: [prepare-release]
+    needs: [prepare-release, version]
     runs-on: ubuntu-18.04
     steps:
     - name: Download build artifacts
@@ -112,7 +112,7 @@ jobs:
         asset_content_type: application/octet-stream
 
   release-macos-build:
-    needs: [prepare-release, build-macos]
+    needs: [prepare-release, build-macos, version]
     runs-on: ubuntu-18.04
     steps:
     - name: Download build artifacts
