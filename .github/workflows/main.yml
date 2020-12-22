@@ -57,12 +57,12 @@ jobs:
         path: build/TugOfWar-${{ needs.version.outputs.VERSION }}.dmg
         if-no-files-found: error
 
-  release:
-    needs: [build-linux, build-macos]
+  prepare-release:
+    needs: [build-linux]
     runs-on: ubuntu-18.04
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-    - name: Download build artifacts
-      uses: actions/download-artifact@v2
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -73,13 +73,20 @@ jobs:
         release_name: Release ${{ needs.version.outputs.VERSION }}
         draft: true
         prerelease: false
+
+  release-linux-build:
+    needs: [prepare-release]
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v2
     - name: Upload Release Asset (Linux AppImage)
       id: upload-release-asset-linux-appimage
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        upload_url: ${{ needs.prepare-release.outputs.upload_url }}
         asset_path: ./build-artifacts-linux/TugOfWar-${{ needs.version.outputs.VERSION }}-x86_64.AppImage
         asset_name: TugOfWar-${{ needs.version.outputs.VERSION }}-x86_64.AppImage
         asset_content_type: application/octet-stream
@@ -89,7 +96,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        upload_url: ${{ needs.prepare-release.outputs.upload_url }}
         asset_path: ./build-artifacts-linux/TugOfWar-${{ needs.version.outputs.VERSION }}-x64-winportable.zip
         asset_name: TugOfWar-${{ needs.version.outputs.VERSION }}-x64-winportable.zip
         asset_content_type: application/zip
@@ -99,17 +106,24 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        upload_url: ${{ needs.prepare-release.outputs.upload_url }}
         asset_path: ./build-artifacts-linux/TugOfWar-${{ needs.version.outputs.VERSION }}-x64.exe
         asset_name: TugOfWar-${{ needs.version.outputs.VERSION }}-x64.exe
         asset_content_type: application/octet-stream
+
+  release-macos-build:
+    needs: [prepare-release, build-macos]
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v2
     - name: Upload Release Asset (Mac OS)
       id: upload-release-asset-macos
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        upload_url: ${{ needs.prepare-release.outputs.upload_url }}
         asset_path: ./build-artifacts-macos/TugOfWar-${{ needs.version.outputs.VERSION }}.dmg
         asset_name: TugOfWar-${{ needs.version.outputs.VERSION }}.dmg
         asset_content_type: application/octet-stream
